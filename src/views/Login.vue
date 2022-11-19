@@ -1,4 +1,5 @@
 <template>
+  <section class="vh-100" style="background-color: #eee">
   <main class="form-signin w-100 m-auto">
       <div class="container h-100">
     <form
@@ -340,6 +341,7 @@
     </form>
     </div>
   </main>
+  </section>
 </template>
 
 <script>

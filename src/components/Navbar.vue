@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/LandingPage">HairHarvest</a>
+      <router-link class="navbar-brand" to="/LandingPage">HairHarvest</router-link>
       <button
         class="navbar-toggler"
         type="button"
@@ -32,7 +32,7 @@
 </template>
 
 <script>
-export default {};
+
 </script>
 
 <style lang="scss" scoped></style>
