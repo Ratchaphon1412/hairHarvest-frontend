@@ -1,20 +1,22 @@
 <template>
   <main class="form-signin w-100 m-auto">
+      <div class="container h-100">
     <form
       @submit.prevent
       data-dashlane-rid="38767d7ab6a0b66c"
       data-form-type="login"
     >
-      <img
-        class="mb-4"
-        src="/docs/5.2/assets/brand/bootstrap-logo.svg"
-        alt=""
-        width="72"
-        height="57"
-      />
-      <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+<!--      <img-->
+<!--          class="mb-4 ml-auto mr-auto"-->
+<!--          src="/docs/5.2/assets/brand/bootstrap-logo.svg"-->
+<!--          alt=""-->
+<!--          width="72"-->
+<!--          height="57">-->
+      <div class="card fat">
+        <div class="card-body">
+      <h1 class="h3 mb-3 fw-normal">Sign In</h1>
 
-      <div class="form-floating">
+      <div class="form-floating mt-4">
         <input
           v-model="email"
           type="email"
@@ -161,7 +163,7 @@
           "
         ></span>
       </div>
-      <div class="form-floating">
+      <div class="form-floating ">
         <input
           v-model="password"
           type="password"
@@ -330,8 +332,13 @@
       >
         Sign in
       </button>
-      <p class="mt-5 mb-3 text-muted">© 2017–2022</p>
+      <div class="mt-4 text-center">
+        Don't have an account? <a href="/Register">Create One</a>
+      </div>
+        </div>
+      </div>
     </form>
+    </div>
   </main>
 </template>
 
@@ -365,6 +372,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+body{
+  background: lightgray;
+}
 .form-signin {
   max-width: 330px;
   padding: 15px;
