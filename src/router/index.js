@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import LandingPage from "@/views/LandingPage";
 
 
 const routes = [
@@ -16,7 +17,15 @@ const routes = [
     path:'/Register',
     name:'Register',
     component: () => import(/* webpackChunkName: "Register" */ '../views/Register.vue')
-  }
+  },
+  {
+    path:'/LandingPage',
+    name:'',
+    component: function(){
+      return LandingPage
+    }
+  },
+
 
 ]
 
