@@ -5,7 +5,7 @@ import './registerServiceWorker'
 import router from './router'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/js/bootstrap.bundle.js'
-
+import "./assets/styles.css"
 const pinia = createPinia()
 
 
