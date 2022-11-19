@@ -1,46 +1,79 @@
 import axios from 'axios'
 
-const axiosInstance = axios.create({
-    baseURL: 'http://localhost/api/'
-})
-const JWT_TOKEN_LOCALSTORAGE_KEY = 'jwt_token'
-const token = localStorage.getItem(JWT_TOKEN_LOCALSTORAGE_KEY);
 
 
-axiosInstance.defaults.headers.common['Accept'] = 'application/json;charset=UTF-8';
-axiosInstance.defaults.headers.common['Content-Type'] = 'application/json;charset=UTF-8';
 
-if (token) {
-    axiosInstance.defaults.headers.common['Authorization'] = 'Bearer ' + token
-}
+
 
 export const authAPI = {
     async login(email, password) {
-        const response = await axiosInstance.post('login/', {
-            email, password
-        })
-        if (response.status == 200) {
-            localStorage.setItem(JWT_TOKEN_LOCALSTORAGE_KEY, response.data.refresh_token)
-            return true
-        }
+        const response = await fetch("http://localhost:8000/api/login/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            credentials: "include",
+            body: JSON.stringify({
+                email: email,
+                password: password,
+            }),
+        }).then(response => response.json().then(data => ({
+            status: response.status,
+            body: data
+        })));
 
-        return false
-    },
-    async authAPI() {
-        const _token = localStorage.getItem(JWT_TOKEN_LOCALSTORAGE_KEY)
+        return response;
 
-        if (_token) {
-            axiosInstance.defaults.headers.common['Authorization'] = 'Bearer ' + _token
-        }
-        const response = await axiosInstance.post('user/')
-        if (response.status == 200) {
-            return response.data
-        }
-        return {}
+
+
+
     },
-    logout() {
-        localStorage.removeItem(JWT_TOKEN_LOCALSTORAGE_KEY)
+    async register(email, password, username, picture) {
+        const response = await fetch("http://localhost:8000/api/register/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            credentials: "include",
+            body: JSON.stringify({
+                email: email,
+                password: password,
+                username: username,
+                image: picture,
+            }),
+        }).then(response => response.json().then(data => ({
+            status: response.status,
+            body: data
+        })));
+
+        return response;
+    },
+    async authen() {
+        const response = await fetch("http://localhost:8000/api/user/", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            credentials: "include",
+        }).then(response => response.json().then(data => ({
+            status: response.status,
+            body: data
+        })));
+
+        return response;
+    },
+    async logout() {
+        const response = await fetch("http://localhost:8000/api/logout/", {
+            method: "POST",
+            headers: { 'Content-Type': 'application/json' },
+            credentials: "include",
+
+        }).then
+            (response => response.json().then(data => ({ status: response.status, body: data })));
+
+        return response;
     }
+
 
 }
 

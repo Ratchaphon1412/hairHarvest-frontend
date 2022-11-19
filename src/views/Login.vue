@@ -336,6 +336,8 @@
 </template>
 
 <script>
+import {useAuthStore} from '@/store/auth.js';
+
 export default {
   data() {
     return {
@@ -346,19 +348,10 @@ export default {
   methods: {
     async login() {
       // console.log(this.email, this.password);
-
-      await fetch("http://localhost:8000/api/login/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-        body: JSON.stringify({
-          email: this.email,
-          password: this.password,
-        }),
-      });
-      await this.$router.push({ path: "/" });
+       const auth_store = useAuthStore()
+      if(auth_store.login(this.email,this.password)){
+         await this.$router.push({ path: "/" });
+      }
     },
   },
 };

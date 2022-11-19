@@ -117,34 +117,32 @@
 </template>
 
 <script>
+import {useAuthStore} from '@/store/auth.js';
 export default {
   data() {
     return {
       username: "",
       password: "",
       email: "",
+      image:"",
     };
   },
   methods: {
     async submit() {
-      //   const router = userRouter();
+      const auth_store = useAuthStore()
 
-      //   console.log(this.username);
-      const response = await fetch("http://localhost:8000/api/register/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: this.username,
-          password: this.password,
-          email: this.email,
-        }),
+      
+
+
+      const response = await auth_store.register({
+        username: this.username,
+        password: this.password,
+        email: this.email,
+        image:this.image
       });
 
-      const data = await response.json();
-      console.log(data);
-      //   router.push("/Login");
+
+
     },
   },
 };
