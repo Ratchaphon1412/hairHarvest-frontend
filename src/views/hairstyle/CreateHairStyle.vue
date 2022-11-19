@@ -13,17 +13,14 @@
       </div>
     </div>
   </nav>
-  <div>home</div>
 </template>
 
 <script>
-export default {
-  name:"home",
-};
+    export default{
+
+    }
 </script>
 
 <style lang="scss" scoped>
-
-
 
 </style>

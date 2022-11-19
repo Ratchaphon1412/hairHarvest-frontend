@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import LandingPage from "@/views/LandingPage";
+import CreateHairStyleVue from '@/views/hairstyle/CreateHairStyle.vue';
 
 
 const routes = [
@@ -20,11 +21,19 @@ const routes = [
   },
   {
     path:'/LandingPage',
-    name:'',
+    name:'LandingPage',
     component: function(){
       return LandingPage
     }
   },
+  {
+    path:'/CreateHairStyle',
+    name:'CreateHairStyle',
+    component:function(){
+      return import('@/views/hairstyle/CreateHairStyle.vue')
+    }
+  },
+
 
 
 ]
