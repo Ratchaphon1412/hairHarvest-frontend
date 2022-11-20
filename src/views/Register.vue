@@ -81,7 +81,7 @@
                     <div class="form-check d-flex fw-bold justify-content-center mb-3">
                       <label class="form-check-label" for="form2Example3">
                         Already has an account?
-                        <a href="#!" class="text-primary">Login</a>
+                        <a href="/Login" class="text-primary">Login</a>
                       </label>
                     </div>
 
