@@ -59,25 +59,17 @@
                       </div>
                     </div>
 
-                    <div v-if="password">
-
-                    </div>
-
-                    <!-- <div class="d-flex flex-row align-items-center mb-4">
-                      <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
-                        <input
-                          v-model="password2"
-                          type="password"
-                          id="form3Example4cd"
-                          class="form-control"
-                        />
-                        <label class="form-label" for="form3Example4cd"
-                          >Repeat your password</label
+                        <label class="form-label" for="form3Example4c"
+                        >Password *</label
                         >
+                        <input
+                            v-model="confirmPassword"
+                            type="password"
+                            id="form3Example4c"
+                            class="form-control"
+                        />
                       </div>
-                    </div> -->
-
                     <div class="form-check d-flex fw-bold justify-content-center mb-3">
                       <label class="form-check-label" for="form2Example3">
                         Already has an account?
@@ -87,12 +79,11 @@
 
                     <div
                       class="d-flex justify-content-center mx-4 mb-3 mb-lg-4"
-                    >
+                      v-if="checkpassword">
                       <button
                         type="button"
                         @click="submit"
-                        class="btn btn-primary btn-lg"
-                      >
+                        class="btn btn-primary btn-lg">
                         Register
                       </button>
                     </div>
@@ -123,6 +114,7 @@ export default {
       username: "",
       password: "",
       email: "",
+      confirmPassword: "",
     };
   },
   methods: {
@@ -146,6 +138,11 @@ export default {
       console.log(data);
       //   router.push("/Login");
     },
+  },
+  computed: {
+    checkpassword() {
+      return this.password === this.confirmPassword;
+    }
   },
 };
 </script>
