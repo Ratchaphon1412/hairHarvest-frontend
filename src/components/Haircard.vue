@@ -19,7 +19,10 @@ export default {
 </script>
 
 <style>
-.resize{
-    width: 300;
+.card{
+  position: relative;
+  align-items: center;
+  text-align: center;
 }
+
 </style>
