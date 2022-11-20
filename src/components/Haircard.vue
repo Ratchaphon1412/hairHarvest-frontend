@@ -1,5 +1,5 @@
 <template>
-<div class="card mx-auto" style="width: 20rem;">
+<div type="button" class="card mx-auto" style="width: 20rem;">
   <img src="../assets/hairOne.png" class="card-img" alt="...">
   <div class="card-body">
     <h5 class="card-title">{{title}}</h5>

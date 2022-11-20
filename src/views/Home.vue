@@ -1,6 +1,6 @@
 <template>
-    <Searchbar />
     <main class="container mx-auto mt-4">
+      <Searchbar />
       <div v-for="n in 3" class="row mb-5">
         <div class="col">
           <Haircard

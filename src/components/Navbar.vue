@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top ">
     <div class="container-fluid">
       <button
         class="navbar-toggler"
@@ -19,10 +19,10 @@
             <!-- <a class="nav-link active" aria-current="page" href="#">Home</a> -->
           </li>
           <li class="nav-item">
-            <router-link to="/Login" class="nav-link">Login</router-link>
+            <router-link to="/Login" class="nav-link">Hair Style</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/Register" class="nav-link">Register</router-link>
+            <router-link to="/Register" class="nav-link">Blog</router-link>
           </li>
         </ul>
       </div>
