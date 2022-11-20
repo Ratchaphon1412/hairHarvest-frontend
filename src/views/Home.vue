@@ -1,34 +1,31 @@
 <template>
   <!--  Multi Select-->
-    <VueMultiselect
-        v-model="multiValue"
-        :options="options"
-        :multiple="true"
-        :close-on-select="true"
-        placeholder="Pick some"
-        label="name"
-        track-by="name"
-    />
+<!--  <section class="page-section my-3 mx-5 text-white">-->
+<!--    <VueMultiselect-->
+<!--        v-model="multiValue"-->
+<!--        :options="options"-->
+<!--        :max-height="150"-->
+
+<!--        placeholder="Select Some"-->
+<!--        label="name"-->
+<!--        track-by="name"-->
+<!--    />-->
+<!--  </section>-->
 </template>
 
 <script>
-import VueMultiselect from 'vue-multiselect'
-export default {
-  components: { VueMultiselect },
-  data () {
-    return {
-      multiValue: [],
-      options: [
-        { name: 'Vue.js', language: 'JavaScript' },
-        { name: 'Adonis', language: 'JavaScript' },
-        { name: 'Rails', language: 'Ruby' },
-        { name: 'Sinatra', language: 'Ruby' },
-        { name: 'Laravel', language: 'PHP' },
-        { name: 'Phoenix', language: 'Elixir' }
-      ]
-    }
-  }
-};
+// import VueMultiselect from 'vue-multiselect'
+// export default {
+  // components: { VueMultiselect },
+  // data () {
+    // return {
+    //   multiValue: [],
+    //
+    // }
+// }
 </script>
 
-<style src="vue-multiselect/dist/vue-multiselect.css"></style>
+<!--<style src="vue-multiselect/dist/vue-multiselect.css">-->
+
+
+<!--</style>-->

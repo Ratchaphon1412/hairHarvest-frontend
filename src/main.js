@@ -6,7 +6,7 @@ import router from './router'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/js/bootstrap.bundle.js'
 import "./assets/styles.css"
-import 'vue-multiselect'
+// import 'vue-multiselect'
 const pinia = createPinia()
 
 
