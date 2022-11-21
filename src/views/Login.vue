@@ -2,37 +2,52 @@
   <section class="vh-100">
     <div class="container-fluid h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
-
         <div class="col-md-9 col-lg-6 col-xl-5">
-          <img alt="Sample image"
-               class="img-fluid" src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp">
+          <img
+            alt="Sample image"
+            class="img-fluid"
+            src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+          />
         </div>
         <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
           <form>
-            <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">
-              Login
-            </p>
+            <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Login</p>
             <!-- Email input -->
             <div class="form-outline mb-4">
-              <label class="form-label" for="form3Example3">Email address</label>
-              <input id="form3Example3" class="form-control form-control-lg" placeholder="Enter a valid email address"
-                     type="email"/>
-
+              <label class="form-label" for="form3Example3"
+                >Email address</label
+              >
+              <input
+                id="form3Example3"
+                class="form-control form-control-lg"
+                placeholder="Enter a valid email address"
+                type="email"
+              />
             </div>
 
             <!-- Password input -->
             <div class="form-outline mb-3">
               <label class="form-label" for="form3Example4">Password</label>
-              <input id="form3Example4" class="form-control form-control-lg" placeholder="Enter password"
-                     type="password"/>
-              <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a class="link-danger"
-                                                                                href="/Register">Register</a></p>
-
+              <input
+                id="form3Example4"
+                class="form-control form-control-lg"
+                placeholder="Enter password"
+                type="password"
+              />
+              <p class="small fw-bold mt-2 pt-1 mb-0">
+                Don't have an account?
+                <a class="link-danger" href="/Register">Register</a>
+              </p>
             </div>
 
             <div class="text-center text-lg-start mt-4 pt-2">
-              <button class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem;" type="button"
-                      @click="login">Login
+              <button
+                class="btn btn-primary btn-lg"
+                style="padding-left: 2.5rem; padding-right: 2.5rem"
+                type="button"
+                @click="login"
+              >
+                Login
               </button>
             </div>
           </form>
@@ -43,6 +58,8 @@
 </template>
 
 <script>
+import { useAuthStore } from "@/store/auth.js";
+
 export default {
   data() {
     return {
@@ -54,18 +71,10 @@ export default {
     async login() {
       // console.log(this.email, this.password);
 
-      await fetch("http://localhost:8000/api/login/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-        body: JSON.stringify({
-          email: this.email,
-          password: this.password,
-        }),
-      });
-      await this.$router.push({path: "/"});
+      const auth_store = useAuthStore();
+      if (auth_store.login(this.email, this.password)) {
+        await this.$router.push({ path: "/" });
+      }
     },
   },
 };
@@ -77,11 +86,11 @@ body {
 }
 
 .text-primary {
-  color: #DA0037 !important;
+  color: #da0037 !important;
 }
 
 .a:hover {
-  color: #DA0037 !important;
+  color: #da0037 !important;
 }
 
 .border-bottom {
@@ -90,8 +99,8 @@ body {
 }
 
 .btn-primary {
-  background-color: #DA0037 !important;
-  border: 0px
+  background-color: #da0037 !important;
+  border: 0px;
 }
 
 .btn-primary:hover {
@@ -139,7 +148,7 @@ body {
   border: solid rgba(0, 0, 0, 0.15);
   border-width: 1px 0;
   box-shadow: inset 0 0.5em 1.5em rgba(0, 0, 0, 0.1),
-  inset 0 0.125em 0.5em rgba(0, 0, 0, 0.15);
+    inset 0 0.125em 0.5em rgba(0, 0, 0, 0.15);
 }
 
 .b-example-vr {
