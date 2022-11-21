@@ -7,7 +7,7 @@
       <h1 class="masthead-heading border-bottom mb-0">Hairvest</h1>
       <h5 class="my-2">Website for Beauty and Salon</h5>
       <class class="flex">
-        <button @click="$router.push('Register')" class="btn bg-primary p-2 m-3 text-white border-white">Click to
+        <button @click="$router.push('Register')" class="btn btn-primary px-lg-3 py-lg-3 m-3 text-white border-white">Click to
           Explore
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right"
             viewBox="0 0 16 16">
