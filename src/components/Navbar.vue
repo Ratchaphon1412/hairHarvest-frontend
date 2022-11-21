@@ -31,9 +31,10 @@
                 Dropdown link
               </a>
               <ul class="dropdown-menu ms-auto">
-                <li><a class="dropdown-item" href="#">Save List</a></li>
-                <li><a class="dropdown-item" href="#">Create Store</a></li>
-                <li><a class="dropdown-item" href="/LandingPage">Logout</a></li>
+                <li><a class="dropdown-item" href="/MyPost" role="button">My Post</a></li>
+                <li><a class="dropdown-item" href="/SavePost">Save List</a></li>
+                <li><a class="dropdown-item" href="/CreateStore">Create Store</a></li>
+                <li><a class="dropdown-item fw-bold text-red" href="/LandingPage">Logout</a></li>
               </ul>
             </li>
           </ul>
@@ -50,14 +51,11 @@ export default {
       return this.$route.name === 'LandingPage' && this.$route.name !== 'home' && this.$route.name !== 'CreateHairStyle';
     }
   },
-  // methods: {
-  //   async logout() {
-  //
-  //   }
-  // },
 }
 </script>
 
 <style lang="scss" scoped>
-
+.text-red{
+  color:#dc3545;
+}
 </style>

@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import LandingPage from "@/views/LandingPage";
-import CreateHairStyleVue from '@/views/hairstyle/CreateHairStyle.vue';
+import MyPostView from "@/views/mypost/MyPostView";
+import SavePostView from "@/views/mypost/SavePostView";
+import CreateStoreView from "@/views/mypost/CreateStoreView";
 
 
 const routes = [
@@ -39,10 +41,28 @@ const routes = [
     component:function(){
       return import('@/views/hairstyle/HairStyleShow.vue')
     }
-  }
-
-
-
+  },
+  {
+    path:'/CreateStore',
+    name:'CreateStore',
+    component: function(){
+      return import(CreateStoreView)
+    }
+  },
+  {
+    path: '/MyPost',
+    name:'MyPost',
+    component: function(){
+      return import(MyPostView)
+    }
+  },
+  {
+    path: '/SavePost',
+    name: 'SavePost',
+    component: function (){
+      return import(SavePostView)
+    }
+  },
 ]
 
 const router = createRouter({
