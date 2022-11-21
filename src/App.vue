@@ -1,17 +1,23 @@
 <template>
   <div>
-    <Navbar />
-    <router-view />
+    <NavBar v-if="showMenu"/>
+    <RouterView />
   </div>
 </template>
 
 <script>
-import Navbar from "./components/Navbar.vue";
+import NavBar from '@/components/Navbar.vue'
 export default {
-  components: {
-    Navbar,
+  computed: {
+    showMenu() {
+      return this.$route.name !== 'Login' && this.$route.name !== 'Register';
+    }
   },
-};
+  components: {
+    NavBar,
+  },
+}
+
 </script>
 
 <style lang="scss"></style>

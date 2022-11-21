@@ -1,37 +1,63 @@
-<template>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top ">
-    <div class="container-fluid">
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <router-link to="/" class="nav-link">Hairvest</router-link>
-            <!-- <a class="nav-link active" aria-current="page" href="#">Home</a> -->
-          </li>
-          <li class="nav-item">
-            <router-link to="/Login" class="nav-link">Hair Style</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link to="/Register" class="nav-link">Blog</router-link>
-          </li>
-        </ul>
-      </div>
+ <template>
+    <div v-if="showLandingMenu">
+      <nav class="navbar navbar-expand-lg bg-dark text-uppercase fixed-top" id="mainNav">
+        <div class="container">
+          <a class="navbar-brand text-white" href="#page-top">Hairvest</a>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#page-top">Home</a>
+              </li>
+              <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">About</a></li>
+              <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Follow</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     </div>
-  </nav>
+  <div v-else>
+    <nav id="mainNav" class="navbar navbar-expand-lg bg-dark text-uppercase sticky-top">
+      <div class="container">
+        <a class="navbar-brand text-white" href="/LandingPage">Hairvest</a>
+        <div id="navbarResponsive" class="collapse navbar-collapse">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/">Home</a>
+            </li>
+            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
+                                                 href="/CreateHairStyle">Create HairStyle</a></li>
+            <li class="nav-item dropdown mx-0 mx-lg-1 ">
+              <a aria-expanded="false" class="nav-link dropdown-toggle py-3 px-0 px-lg-3 rounded" data-bs-toggle="dropdown"
+                 href="#" role="button">
+                Dropdown link
+              </a>
+              <ul class="dropdown-menu ms-auto">
+                <li><a class="dropdown-item" href="#">Save List</a></li>
+                <li><a class="dropdown-item" href="#">Create Store</a></li>
+                <li><a class="dropdown-item" href="/LandingPage">Logout</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
 </template>
 
 <script>
-export default {};
+export default {
+  computed: {
+    showLandingMenu() {
+      return this.$route.name === 'LandingPage' && this.$route.name !== 'home' && this.$route.name !== 'CreateHairStyle';
+    }
+  },
+  // methods: {
+  //   async logout() {
+  //
+  //   }
+  // },
+}
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+</style>

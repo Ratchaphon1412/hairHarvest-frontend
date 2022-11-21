@@ -1,4 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import LandingPage from "@/views/LandingPage";
+import CreateHairStyleVue from '@/views/hairstyle/CreateHairStyle.vue';
 
 
 const routes = [
@@ -16,7 +18,30 @@ const routes = [
     path:'/Register',
     name:'Register',
     component: () => import(/* webpackChunkName: "Register" */ '../views/Register.vue')
+  },
+  {
+    path:'/LandingPage',
+    name:'LandingPage',
+    component: function(){
+      return LandingPage
+    }
+  },
+  {
+    path:'/CreateHairStyle',
+    name:'CreateHairStyle',
+    component:function(){
+      return import('@/views/hairstyle/CreateHairStyle.vue')
+    }
+  },
+  {
+    path:'/ShowHairStyle',
+    name:'ShowHairStyle',
+    component:function(){
+      return import('@/views/hairstyle/HairStyleShow.vue')
+    }
   }
+
+
 
 ]
 
