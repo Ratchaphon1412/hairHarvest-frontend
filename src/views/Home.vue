@@ -1,23 +1,17 @@
 <template>
-  <div class="mx-auto">
-      <div class="col">
+      <div class="col mx-5">
         <Haircard
             :title="'no1'"
             :subtitle="'no2'"
         />
-      </div>
-      <div class="col">
         <Haircard
             :title="'haha'"
             :subtitle="'jojo'"
         />
-      </div>
-      <div class="col">
         <Haircard
             :title="'this is my third'"
             :subtitle="'koko'"
         />
-      </div>
   </div>
 </template>
 
