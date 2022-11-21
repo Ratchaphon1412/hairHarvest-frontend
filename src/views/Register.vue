@@ -63,6 +63,24 @@
 
                     </div>
 
+                    <div class="flex-row align-items-center mb-2">
+
+                      <img src="@/assets/default.png" id="preview" class="img-profile mb-4"/>
+
+                      <input type="file" name="file" id="file" accept="image/*" @change="previewImage" style="display: none" ref="chooseImg"><br>
+                      <button
+                        @click="$refs.chooseImg.click()"
+                        type="button"
+                        class="btn btn-secondary img-button"
+                      >
+                        Choose you image
+                      </button>
+
+
+                    </div>
+                    
+
+
                     <!-- <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
@@ -117,40 +135,65 @@
 </template>
 
 <script>
+import {useAuthStore} from '@/store/auth.js';
 export default {
   data() {
     return {
       username: "",
       password: "",
       email: "",
+      image:"",
     };
   },
   methods: {
     async submit() {
-      //   const router = userRouter();
+      const auth_store = useAuthStore()
 
-      //   console.log(this.username);
-      const response = await fetch("http://localhost:8000/api/register/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: this.username,
-          password: this.password,
-          email: this.email,
-        }),
+      
+
+
+      const response = await auth_store.register({
+        username: this.username,
+        password: this.password,
+        email: this.email,
+        image:this.image
       });
 
-      const data = await response.json();
-      console.log(data);
-      //   router.push("/Login");
+
+
     },
+
+    previewImage(){
+      var file = document.getElementById("file").files;
+      if (file.length > 0){
+        var fileReader = new FileReader();
+
+        fileReader.onload = function(event){
+          document.getElementById("preview").setAttribute("src", event.target.result);
+        }
+
+        fileReader.readAsDataURL(file[0]);
+      }
+    }
+
   },
 };
 </script>
 
 <style lang="scss" scoped>
+.img-profile {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+  border:2px solid #cecece;
+  border-radius: 20px;
+}
+.img-button{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 .text-primary{
   color: #DA0037 !important;
 }
