@@ -65,9 +65,9 @@
 
                     <div class="flex-row align-items-center mb-2">
 
-                      <img src="@/assets/default.png" class="img-profile mb-4"/>
+                      <img src="@/assets/default.png" id="preview" class="img-profile mb-4"/>
 
-                      <input style="display: none" type="file" @change="onFileSelected" ref="chooseImg">
+                      <input type="file" name="file" id="file" accept="image/*" @change="previewImage" style="display: none" ref="chooseImg"><br>
                       <button
                         @click="$refs.chooseImg.click()"
                         type="button"
@@ -163,9 +163,19 @@ export default {
 
     },
 
-    onFileSelected(event){
-      console.log(event)
+    previewImage(){
+      var file = document.getElementById("file").files;
+      if (file.length > 0){
+        var fileReader = new FileReader();
+
+        fileReader.onload = function(event){
+          document.getElementById("preview").setAttribute("src", event.target.result);
+        }
+
+        fileReader.readAsDataURL(file[0]);
+      }
     }
+
   },
 };
 </script>
@@ -175,7 +185,7 @@ export default {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
+  width: 200px;
   border:2px solid #cecece;
   border-radius: 20px;
 }
