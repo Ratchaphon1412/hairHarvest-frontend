@@ -1,338 +1,48 @@
 <template>
-  <main class="form-signin w-100 m-auto">
-    <form
-      @submit.prevent
-      data-dashlane-rid="38767d7ab6a0b66c"
-      data-form-type="login"
-    >
-      <img
-        class="mb-4"
-        src="/docs/5.2/assets/brand/bootstrap-logo.svg"
-        alt=""
-        width="72"
-        height="57"
-      />
-      <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+  <section class="vh-100">
+  <div class="container-fluid h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
 
-      <div class="form-floating">
-        <input
-          v-model="email"
-          type="email"
-          class="form-control"
-          id="floatingInput"
-          placeholder="name@example.com"
-          data-dashlane-rid="9577d198f6d435de"
-          data-form-type="email"
-          data-kwimpalastatus="alive"
-          data-kwimpalaid="1668604798323-2"
-        />
-        <label for="floatingInput">Email address</label>
-        <span
-          id="1668604798323-2"
-          data-dashlanecreated="true"
-          style="
-            color-scheme: initial;
-            writing-mode: initial;
-            -webkit-ruby-position: initial;
-            color: initial;
-            display: inline;
-            font-family: initial;
-            font-feature-settings: initial;
-            font-kerning: initial;
-            font-optical-sizing: initial;
-            font-palette: initial;
-            font-size: initial;
-            font-stretch: initial;
-            font-style: initial;
-            font-synthesis: initial;
-            font-variant-alternates: initial;
-            font-variant-caps: initial;
-            font-variant-east-asian: initial;
-            font-variant-ligatures: initial;
-            font-variant-numeric: initial;
-            font-variant-position: initial;
-            font-variation-settings: initial;
-            font-weight: initial;
-            text-orientation: initial;
-            text-rendering: initial;
-            -webkit-font-smoothing: initial;
-            -webkit-locale: initial;
-            -webkit-text-size-adjust: initial;
-            -webkit-text-zoom: initial;
-            letter-spacing: initial;
-            accent-color: initial;
-            background-image: url('safari-extension://1A48C6FB-FC08-462D-97B2-F65B34E35BE6/content/injected/logo-autofill-known.svg');
-            border-collapse: initial;
-            caption-side: initial;
-            caret-color: initial;
-            clip-rule: initial;
-            color-interpolation: initial;
-            color-interpolation-filters: initial;
-            cursor: initial;
-            empty-cells: initial;
-            fill: initial;
-            fill-opacity: initial;
-            fill-rule: initial;
-            glyph-orientation-horizontal: initial;
-            glyph-orientation-vertical: initial;
-            hanging-punctuation: initial;
-            image-orientation: initial;
-            image-rendering: initial;
-            kerning: initial;
-            line-break: initial;
-            line-height: initial;
-            list-style: initial;
-            marker-end: initial;
-            marker-mid: initial;
-            marker-start: initial;
-            opacity: 1;
-            orphans: initial;
-            overflow-wrap: initial;
-            pointer-events: initial;
-            position: absolute;
-            print-color-adjust: initial;
-            quotes: initial;
-            shape-rendering: initial;
-            speak-as: initial;
-            stroke: initial;
-            stroke-color: initial;
-            stroke-dasharray: initial;
-            stroke-dashoffset: initial;
-            stroke-linecap: initial;
-            stroke-linejoin: initial;
-            stroke-miterlimit: initial;
-            stroke-opacity: initial;
-            stroke-width: initial;
-            tab-size: initial;
-            text-align: initial;
-            text-align-last: initial;
-            text-anchor: initial;
-            text-decoration-skip-ink: initial;
-            text-decoration-thickness: initial;
-            text-emphasis-color: initial;
-            text-emphasis-position: initial;
-            text-emphasis-style: initial;
-            text-indent: initial;
-            text-justify: initial;
-            text-shadow: initial;
-            text-transform: initial;
-            text-underline-offset: initial;
-            text-underline-position: initial;
-            visibility: visible;
-            white-space: initial;
-            widows: initial;
-            word-break: initial;
-            word-spacing: initial;
-            z-index: auto;
-            -apple-color-filter: initial;
-            -internal-text-autosizing-status: initial;
-            border-spacing: initial;
-            -webkit-box-direction: initial;
-            -webkit-cursor-visibility: initial;
-            -webkit-hyphenate-character: initial;
-            -webkit-hyphenate-limit-after: initial;
-            -webkit-hyphenate-limit-before: initial;
-            -webkit-hyphenate-limit-lines: initial;
-            -webkit-hyphens: initial;
-            -webkit-line-align: initial;
-            -webkit-line-box-contain: initial;
-            -webkit-line-grid: initial;
-            -webkit-line-snap: initial;
-            -webkit-nbsp-mode: initial;
-            -webkit-rtl-ordering: initial;
-            -webkit-text-decorations-in-effect: initial;
-            -webkit-text-fill-color: initial;
-            -webkit-text-security: initial;
-            -webkit-text-stroke-color: initial;
-            -webkit-text-stroke-width: initial;
-            -webkit-user-modify: initial;
-            -webkit-user-select: initial;
-            background-size: contain;
-            border: none;
-            left: 281px;
-            min-width: 16px;
-            text-combine-upright: initial;
-            top: 21px;
-            width: 16px;
-            -webkit-text-combine: initial;
-            height: 16px;
-            background-position: center center;
-            background-repeat: no-repeat no-repeat;
-          "
-        ></span>
+      <div class="col-md-9 col-lg-6 col-xl-5">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+        class="img-fluid" alt="Sample image">
       </div>
-      <div class="form-floating">
-        <input
-          v-model="password"
-          type="password"
-          class="form-control"
-          id="floatingPassword"
-          placeholder="Password"
-          data-dashlane-rid="b6d8857df2228b8a"
-          data-form-type="password"
-          data-kwimpalastatus="alive"
-          data-kwimpalaid="1668604798323-1"
-        />
-        <label for="floatingPassword">Password</label>
-        <span
-          id="1668604798323-1"
-          data-dashlanecreated="true"
-          style="
-            color-scheme: initial;
-            writing-mode: initial;
-            -webkit-ruby-position: initial;
-            color: initial;
-            display: inline;
-            font-family: initial;
-            font-feature-settings: initial;
-            font-kerning: initial;
-            font-optical-sizing: initial;
-            font-palette: initial;
-            font-size: initial;
-            font-stretch: initial;
-            font-style: initial;
-            font-synthesis: initial;
-            font-variant-alternates: initial;
-            font-variant-caps: initial;
-            font-variant-east-asian: initial;
-            font-variant-ligatures: initial;
-            font-variant-numeric: initial;
-            font-variant-position: initial;
-            font-variation-settings: initial;
-            font-weight: initial;
-            text-orientation: initial;
-            text-rendering: initial;
-            -webkit-font-smoothing: initial;
-            -webkit-locale: initial;
-            -webkit-text-size-adjust: initial;
-            -webkit-text-zoom: initial;
-            letter-spacing: initial;
-            accent-color: initial;
-            background-image: url('safari-extension://1A48C6FB-FC08-462D-97B2-F65B34E35BE6/content/injected/logo-autofill-unknown.svg');
-            border-collapse: initial;
-            caption-side: initial;
-            caret-color: initial;
-            clip-rule: initial;
-            color-interpolation: initial;
-            color-interpolation-filters: initial;
-            cursor: initial;
-            empty-cells: initial;
-            fill: initial;
-            fill-opacity: initial;
-            fill-rule: initial;
-            glyph-orientation-horizontal: initial;
-            glyph-orientation-vertical: initial;
-            hanging-punctuation: initial;
-            image-orientation: initial;
-            image-rendering: initial;
-            kerning: initial;
-            line-break: initial;
-            line-height: initial;
-            list-style: initial;
-            marker-end: initial;
-            marker-mid: initial;
-            marker-start: initial;
-            opacity: 1;
-            orphans: initial;
-            overflow-wrap: initial;
-            pointer-events: initial;
-            position: absolute;
-            print-color-adjust: initial;
-            quotes: initial;
-            shape-rendering: initial;
-            speak-as: initial;
-            stroke: initial;
-            stroke-color: initial;
-            stroke-dasharray: initial;
-            stroke-dashoffset: initial;
-            stroke-linecap: initial;
-            stroke-linejoin: initial;
-            stroke-miterlimit: initial;
-            stroke-opacity: initial;
-            stroke-width: initial;
-            tab-size: initial;
-            text-align: initial;
-            text-align-last: initial;
-            text-anchor: initial;
-            text-decoration-skip-ink: initial;
-            text-decoration-thickness: initial;
-            text-emphasis-color: initial;
-            text-emphasis-position: initial;
-            text-emphasis-style: initial;
-            text-indent: initial;
-            text-justify: initial;
-            text-shadow: initial;
-            text-transform: initial;
-            text-underline-offset: initial;
-            text-underline-position: initial;
-            visibility: visible;
-            white-space: initial;
-            widows: initial;
-            word-break: initial;
-            word-spacing: initial;
-            z-index: auto;
-            -apple-color-filter: initial;
-            -internal-text-autosizing-status: initial;
-            border-spacing: initial;
-            -webkit-box-direction: initial;
-            -webkit-cursor-visibility: initial;
-            -webkit-hyphenate-character: initial;
-            -webkit-hyphenate-limit-after: initial;
-            -webkit-hyphenate-limit-before: initial;
-            -webkit-hyphenate-limit-lines: initial;
-            -webkit-hyphens: initial;
-            -webkit-line-align: initial;
-            -webkit-line-box-contain: initial;
-            -webkit-line-grid: initial;
-            -webkit-line-snap: initial;
-            -webkit-nbsp-mode: initial;
-            -webkit-rtl-ordering: initial;
-            -webkit-text-decorations-in-effect: initial;
-            -webkit-text-fill-color: initial;
-            -webkit-text-security: initial;
-            -webkit-text-stroke-color: initial;
-            -webkit-text-stroke-width: initial;
-            -webkit-user-modify: initial;
-            -webkit-user-select: initial;
-            background-size: contain;
-            border: none;
-            left: 281px;
-            min-width: 16px;
-            text-combine-upright: initial;
-            top: 21px;
-            width: 16px;
-            -webkit-text-combine: initial;
-            height: 16px;
-            background-position: center center;
-            background-repeat: no-repeat no-repeat;
-          "
-        ></span>
-      </div>
+      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+        <form>
+          <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">
+                    Login
+                  </p>
+          <!-- Email input -->
+          <div class="form-outline mb-4">
+            <label class="form-label" for="form3Example3">Email address</label>
+            <input type="email" id="form3Example3" class="form-control form-control-lg"
+              placeholder="Enter a valid email address" />
 
-      <div class="checkbox mb-3">
-        <label data-dashlane-label="true">
-          <input
-            type="checkbox"
-            value="remember-me"
-            data-dashlane-rid="e11ce13dfa0aad2d"
-            data-form-type="consent,rememberme"
-          />
-          Remember me
-        </label>
-      </div>
-      <button
-        @click="login"
-        class="w-100 btn btn-lg btn-primary"
-        type="submit"
-        data-dashlane-label="true"
-        data-dashlane-rid="571c0a7294b9a9a6"
-        data-form-type="action,login"
-      >
-        Sign in
-      </button>
-      <p class="mt-5 mb-3 text-muted">© 2017–2022</p>
-    </form>
-  </main>
+          </div>
+
+          <!-- Password input -->
+          <div class="form-outline mb-3">
+            <label class="form-label" for="form3Example4">Password</label>
+            <input type="password" id="form3Example4" class="form-control form-control-lg"
+              placeholder="Enter password" />
+              <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="/Register"
+                class="link-danger">Register</a></p>
+
+          </div>
+
+
+
+          <div class="text-center text-lg-start mt-4 pt-2">
+            <button type="button" class="btn btn-primary btn-lg"
+              style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
+          </div>
+
+        </form>
+        </div>
+        </div>
+        </div>
+
+</section>
 </template>
 
 <script>
@@ -358,6 +68,27 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+body{
+  background: lightgray;
+}
+.text-primary{
+  color: #DA0037 !important;
+}
+.a:hover{
+  color:#DA0037 !important;
+}
+.border-bottom {
+    border-bottom: 5px #444444 !important;
+    height: 80px;
+  }
+  
+  .btn-primary {
+    background-color: #DA0037 !important;
+    border:0px
+  }
+  .btn-primary:hover {
+    background-color: #860b2a !important;
+  }
 .form-signin {
   max-width: 330px;
   padding: 15px;

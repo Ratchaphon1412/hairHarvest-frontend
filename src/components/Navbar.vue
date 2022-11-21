@@ -1,38 +1,56 @@
 <template>
-  <nav class="navbar navbar-expand-lg bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <router-link to="/" class="nav-link">Home</router-link>
-            <!-- <a class="nav-link active" aria-current="page" href="#">Home</a> -->
-          </li>
-          <li class="nav-item">
-            <router-link to="/Login" class="nav-link">Login</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link to="/Register" class="nav-link">Register</router-link>
-          </li>
-        </ul>
+  <div v-if="showLandingMenu">
+    <nav class="navbar navbar-expand-lg bg-dark text-uppercase fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand text-white" href="#page-top">Hairvest</a>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#page-top">Home</a>
+            </li>
+            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">About</a></li>
+            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Follow</a>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
+  </div>
+  <div v-else>
+    <nav id="mainNav" class="navbar navbar-expand-lg bg-dark text-uppercase fixed-top">
+      <div class="container">
+        <a class="navbar-brand text-white" href="/LandingPage">Hairvest</a>
+        <div id="navbarResponsive" class="collapse navbar-collapse">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/">Home</a>
+            </li>
+            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/CreateHairStyle">Create HairStyle</a></li>
+            <li class="nav-item ms-auto dropdown mx-0 mx-lg-1 ">
+              <a class="nav-link ms-auto dropdown-toggle mx-0 mx-lg-1" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Dropdown link
+              </a>
+            <ul class="dropdown-menu ms-auto">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
 </template>
 
 <script>
-export default {};
+export default {
+  computed: {
+    showLandingMenu(){
+      return this.$route.name === 'LandingPage' && this.$route.name !== 'home' && this.$route.name !== 'CreateHairStyle';
+    }
+  },
+}
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+</style>
