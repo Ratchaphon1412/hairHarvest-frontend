@@ -63,6 +63,24 @@
 
                     </div>
 
+                    <div class="flex-row align-items-center mb-2">
+
+                      <img src="@/assets/default.png" class="img-profile mb-4"/>
+
+                      <input style="display: none" type="file" @change="onFileSelected" ref="chooseImg">
+                      <button
+                        @click="$refs.chooseImg.click()"
+                        type="button"
+                        class="btn btn-secondary img-button"
+                      >
+                        Choose you image
+                      </button>
+
+
+                    </div>
+                    
+
+
                     <!-- <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
@@ -144,11 +162,28 @@ export default {
 
 
     },
+
+    onFileSelected(event){
+      console.log(event)
+    }
   },
 };
 </script>
 
 <style lang="scss" scoped>
+.img-profile {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  border:2px solid #cecece;
+  border-radius: 20px;
+}
+.img-button{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 .text-primary{
   color: #DA0037 !important;
 }
