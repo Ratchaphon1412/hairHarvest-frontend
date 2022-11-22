@@ -4,7 +4,7 @@ import { postAPI} from '@/service/api.js'
 export const usePost = defineStore({
     id:'post',
     state: () => ({
-        postAll: null,//array post
+        postAll: null,
     }),
 
     getters: {
@@ -16,14 +16,16 @@ export const usePost = defineStore({
 
     actions:{
         async fetch(){
-            this.postAll = await postAPI.allPost()
+            this.postAll = await postAPI.getAllPost()
         },
         async allPost(){
-            const response = await postAPI.allPost()
+            const response = await postAPI.getAllPost()
             this.postAll = response
         },
-
-
+        delete(id) {
+            this.postAll = this.postAll.filter((post) => post.id != id)
+        },
+        
     }
 
 

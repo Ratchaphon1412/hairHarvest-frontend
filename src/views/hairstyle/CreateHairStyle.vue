@@ -47,7 +47,15 @@
 
 <script>
     export default{
-
+      data() {
+        return {
+          post: {
+            name:""
+            
+          },
+          error:null
+        }
+      },
     }
 </script>
 
