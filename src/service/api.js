@@ -41,16 +41,20 @@ export const authAPI = {
         }
         return false
 
-
-
     },
     logout(){
         localStorage.removeItem(JWT_TOKEN_LOCALSTORAGE_KEY)
     }
-
-
-   
-
 }
 
+export const postAPI = {
+    async allPost(){
 
+        const  response = await axiosInstance.get('post/');
+        if (response.status == 200) {
+            return response.data
+        }
+        return {}
+    }
+
+}
