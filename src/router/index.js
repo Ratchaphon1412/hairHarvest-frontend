@@ -46,7 +46,7 @@ const routes = [
     path:'/CreateStore',
     name:'CreateStore',
     component: function(){
-      return import(CreateStoreView)
+      return import("@/views/mypost/CreateStoreView")
     }
   },
   {

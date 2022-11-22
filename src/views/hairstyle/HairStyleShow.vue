@@ -1,4 +1,20 @@
 <template>
+
+  <div class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-12 col-xl-8">
+        <div class="card row g-0 text-black form-bg" style="border-radius: 25px">
+          <div class="card-body col md-4">
+            <img class="d-block w-100" src="https://picsum.photos/150?image=380" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
   <div class="card">
     <div class="row ">
       <div class="col-sm-5">
