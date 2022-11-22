@@ -1,18 +1,25 @@
 <template>
-      <div class="col mx-5">
+        <div class="mx-5 d-flex justify-content-center">
         <Haircard
             :title="'no1'"
             :subtitle="'no2'"
+            :username="'userNo1'"
         />
+        </div>
+        <div class="mx-5 d-flex justify-content-center">
         <Haircard
-            :title="'haha'"
-            :subtitle="'jojo'"
+            :title="'no1'"
+            :subtitle="'no2'"
+            :username="'userNo2'"
         />
+        </div>
+        <div class="mx-5 d-flex justify-content-center">
         <Haircard
-            :title="'this is my third'"
-            :subtitle="'koko'"
+            :title="'no1'"
+            :subtitle="'no2'"
+            :username="'userNo3'"
         />
-  </div>
+        </div>
 </template>
 
 <script>

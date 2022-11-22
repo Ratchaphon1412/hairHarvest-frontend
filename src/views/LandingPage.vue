@@ -50,14 +50,14 @@
       <!-- Contact Section Heading-->
       <h2 class="page-section-heading text-center text-uppercase text-black mb-0">Follow</h2>
       <!-- Icon Divider-->
-      <div class="divider-custom">
+      <div class="divider-custom mb-5">
         <div class="divider-custom-line"></div>
         <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
         <div class="divider-custom-line"></div>
       </div>
       <!-- Contact Section Form-->
-      <div class="row g-3 flex-warp justify-content-center">
-        <div class="col-lg-6 col-xl-7 ">
+      <div class="row g-5 flex-warp justify-content-center">
+        <div class="text-center">
           <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor"
             class="bi bi-facebook text-secondary  mx-2" viewBox="0 0 16 16">
             <path
