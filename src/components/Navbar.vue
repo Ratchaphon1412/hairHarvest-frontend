@@ -4,7 +4,10 @@
     id="mainNav"
   >
     <div class="container">
-      <a class="navbar-brand text-white" href="#page-top">Hairvest</a>
+      <a class="navbar-brand text-white" href="#page-top">
+        <i class="bi bi-display me-3"></i>
+        Hairvest</a
+      >
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item mx-0 mx-lg-1">
