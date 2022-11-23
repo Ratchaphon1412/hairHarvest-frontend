@@ -6,74 +6,68 @@
           <div class="card text-black form-bg" style="border-radius: 25px">
             <div class="card-body p-md-5">
               <p class="text-left h3 fw-bold mb-3 mx-1 mx-md-4 mt-4">
-                    สร้างร้านค้า
-                  </p>
+                สร้างร้านค้า
+              </p>
               <div class="row">
                 <div class="col order-2 order-lg-1">
 
                   <div class="flex-row align-items-center mb-2">
 
-                    <img src="@/assets/shop.png" id="preview" class="img-profile mb-4"
-                      >
+                    <img id="preview" class="img-profile mb-4" src="@/assets/shop.png"
+                    >
 
-                      <input type="file" name="file" id="file" accept="image/*" @change="previewImage" style="display: none" ref="chooseImg">
-                      <button
+                    <input id="file" ref="chooseImg" accept="image/*" name="file" style="display: none"
+                           type="file" @change="previewImage">
+                    <button
                         id="upload"
-                        @click="$refs.chooseImg.click()"
-                        type="button"
                         class="btn btn-secondary img-button"
-                      >
-                        Choose your image
-                      </button>
+                        type="button"
+                        @click="$refs.chooseImg.click()"
+                    >
+                      Choose your image
+                    </button>
 
                   </div>
-                
+
                 </div>
                 <div class="col">
-                  <form @submit.prevent class="mx-1 mx-md-4">
+                  <form class="mx-1 mx-md-4" @submit.prevent>
                     <div class="d-flex flex-row align-items-center mb-4">
                       <div class="form-outline flex-fill">
-                        <label class="form-label" for="form3Example1c"
-                          >ชื่อร้าน</label
-                        >
-                        <input type="storeName" class="form-control" id="inputStoreName">
-
+                        <label class="form-label" for="form3Example1c">ชื่อร้าน</label>
+                        <input id="inputStoreName" class="form-control" type="storeName">
                       </div>
                     </div>
 
                     <div class="pt-/">
                       <label class="form-label" for="form3Example1c"
-                          >รายละเอียด</label
-                        >
-                        <input type="storeDescription" class="form-control" id="inputStoreDescription">
+                      >รายละเอียด</label
+                      >
+                      <input id="inputStoreDescription" class="form-control" type="storeDescription">
                     </div>
-                    
+
                     <div class="row">
 
                       <div
-                      class="col d-flex justify-content-start mt-5 mb-3 mb-lg-4"
-                    >
-                      <button
-                        type="button"
-                        @click="submit"
-                        class="btn btn-secondary btn-lg"
-                      >
-                        ยกเลิก
-                      </button>
-                    </div>
+                          class="col d-flex justify-content-start mt-5 mb-3 mb-lg-4">
+                        <button
+                            class="btn btn-secondary btn-lg"
+                            type="button"
+                            @click="submit">
+                          ยกเลิก
+                        </button>
+                      </div>
 
                       <div
-                      class="col d-flex justify-content-end mt-5 mb-3 mb-lg-4"
-                    >
-                      <button
-                        type="button"
-                        @click="submit"
-                        class="btn btn-primary btn-lg"
-                      >
-                        สร้างโพสต์
-                      </button>
-                    </div>
-                      
+                          class="col d-flex justify-content-end mt-5 mb-3 mb-lg-4">
+                        <button
+                            class="btn btn-primary btn-lg"
+                            type="button"
+                            @click="submit">
+                          สร้างโพสต์
+                        </button>
+                      </div>
+
                     </div>
                   </form>
                 </div>
@@ -89,40 +83,41 @@
 <script>
 export default {
   name: "CreateStore",
-  methods:{
+  methods: {
 
-  previewImage(){
-  var file = document.getElementById("file").files;
-  if (file.length > 0){
-    var fileReader = new FileReader();
-    fileReader.onload = function(event){
-      document.getElementById("preview").setAttribute("src", event.target.result);
-    }
-    fileReader.readAsDataURL(file[0]);
-    // this.image = this.$ref.file.files.item(0)
-  }
-  },
-
+    previewImage() {
+      var file = document.getElementById("file").files;
+      if (file.length > 0) {
+        var fileReader = new FileReader();
+        fileReader.onload = function (event) {
+          document.getElementById("preview").setAttribute("src", event.target.result);
+        }
+        fileReader.readAsDataURL(file[0]);
+        // this.image = this.$ref.file.files.item(0)
+      }
+    },
   },
 }
 </script>
 
 <style scoped>
 
-.form-bg{
+.form-bg {
   background-color: #ededed;
 }
+
 .img-profile {
   display: block;
   margin-left: auto;
   margin-right: auto;
   object-fit: cover;
-  height: 250px ;
+  height: 250px;
   width: 250px;
-  border:2px solid #cecece;
+  border: 2px solid #cecece;
   border-radius: 20px;
 }
-.img-button{
+
+.img-button {
   display: block;
   margin-left: auto;
   margin-right: auto;

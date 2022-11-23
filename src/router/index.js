@@ -36,8 +36,8 @@ const routes = [
     }
   },
   {
-    path:'/ShowHairStyle',
-    name:'ShowHairStyle',
+    path:'/post/:id',
+    name:'post.show',
     component:function(){
       return import('@/views/hairstyle/HairStyleShow.vue')
     }

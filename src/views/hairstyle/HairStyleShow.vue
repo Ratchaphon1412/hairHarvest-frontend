@@ -1,11 +1,7 @@
 <template>
-
-<div class="container d-flex justify-content-center">
-
-  <showcard/>
-
-</div>
-
+  <div class="container d-flex justify-content-center">
+    <showcard />
+  </div>
 </template>
 
 <script>
@@ -18,27 +14,23 @@ export default {
   comments: {
     Showcard,
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>
-
 .card-block {
   font-size: 1em;
   position: relative;
   margin: 0;
   padding: 1em;
   border: none;
-  border-top: 1px solid rgba(34, 36, 38, .1);
+  border-top: 1px solid rgba(34, 36, 38, 0.1);
   box-shadow: none;
-
 }
 
-.previewImg{
+.previewImg {
   object-fit: cover;
-  height: 500px ;
+  height: 500px;
   width: 400px;
 }
-
-
 </style>

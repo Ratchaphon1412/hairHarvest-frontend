@@ -18,6 +18,7 @@
                 >Email address</label
               >
               <input
+                v-model="email"
                 id="form3Example3"
                 class="form-control form-control-lg"
                 placeholder="Enter a valid email address"
@@ -29,6 +30,7 @@
             <div class="form-outline mb-3">
               <label class="form-label" for="form3Example4">Password</label>
               <input
+                v-model="password"
                 id="form3Example4"
                 class="form-control form-control-lg"
                 placeholder="Enter password"
