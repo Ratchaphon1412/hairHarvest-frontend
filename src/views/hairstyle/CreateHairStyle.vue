@@ -79,14 +79,6 @@
                           class="form-control"
                           id="inputStyle"
                         />
-                        <!-- <select id="inputState" class="form-select">
-                          <option selected>Choose...</option>
-                          <option>เกาหลี</option>
-                          <option>ลอนด์</option>
-                          <option>ประบ่า</option>
-                          <option>สั้น</option>
-                          <option>ยาว</option>
-                        </select> -->
                       </div>
                     </div>
 
@@ -138,7 +130,6 @@
 </template>
 
 <script>
-import axios from "axios";
 export default {
   name: "CreateHairStyle",
   data() {
@@ -165,7 +156,6 @@ export default {
             .setAttribute("src", event.target.result);
         };
         fileReader.readAsDataURL(file[0]);
-        // this.image = this.$ref.file.files.item(0)
       }
     },
     async saveNewPost() {
