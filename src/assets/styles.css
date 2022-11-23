@@ -17,6 +17,16 @@
     background-color: #860b2a !important;
 }
 
+.btn-outline-primary {
+    border-color: #DA0037 !important;
+    color: #DA0037 !important;
+}
+
+.btn-outline-primary:hover {
+    background-color: #DA0037 !important;
+    color: #fff !important;
+}
+
 .bg-secondary {
     background-color: #444444 !important;
 }

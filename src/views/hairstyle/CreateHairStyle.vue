@@ -13,19 +13,15 @@
 
                   <div class="flex-row align-items-center mb-2">
 
-                    <img src="@/assets/default.png" id="preview" class="img-profile mb-4"
-                      >
+                    <img src="@/assets/default.png" id="preview" class="img-profile mb-4">
 
                       <input type="file" name="file" id="file" accept="image/*" @change="previewImage" style="display: none" ref="chooseImg">
                       <button
                         id="upload"
                         @click="$refs.chooseImg.click()"
                         type="button"
-                        class="btn btn-secondary img-button"
-                      >
-                        Choose your image
+                        class="btn btn-secondary img-button">Choose your image
                       </button>
-
                   </div>
                 
                 </div>
@@ -33,36 +29,25 @@
                   <form @submit.prevent class="mx-1 mx-md-4">
                     <div class="d-flex flex-row align-items-center mb-4">
                       <div class="form-outline flex-fill">
-                        <label class="form-label" for="form3Example1c"
-                          >ชื่อทรงผม</label
+                        <label class="form-label" for="form3Example1c">ชื่อทรงผม</label
                         >
-                        <input type="title" class="form-control" id="inputTitle">
+                        <input type="text" class="form-control" id="inputTitle">
 
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-md-6">
                         <label for="inputAddress" class="form-label">เลือกสีผม</label>
-                        <select id="inputState" class="form-select">
-                          <option selected>Choose...</option>
-                          <option>ดำ</option>
-                          <option>แดง</option>
-                          <option>น้ำตาล</option>
-                          <option>บลอนด์</option>
-                          <option>น้ำเงิน</option>
-                        </select>
+                        <vue3-tags-input :tags="color"
+                                         placeholder="น้ำเงิน, ดำ, ..."
+                                         @on-tags-changed="handleColorChangeTag"/>
                       </div>
 
                       <div class="col-md-6">
                         <label for="inputState" class="form-label">เลือกแบบผม</label>
-                        <select id="inputState" class="form-select">
-                          <option selected>Choose...</option>
-                          <option>เกาหลี</option>
-                          <option>ลอนด์</option>
-                          <option>ประบ่า</option>
-                          <option>สั้น</option>
-                          <option>ยาว</option>
-                        </select>
+                        <vue3-tags-input :tags="type"
+                                         placeholder="สั้น, ประบ่า, ..."
+                                         @on-tags-changed="handleTypeChangeTag"/>
                       </div> 
                     </div>
 
@@ -70,18 +55,18 @@
                       <label class="form-label" for="form3Example1c"
                           >รายละเอียด</label
                         >
-                        <input type="description" class="form-control" id="inputDescription">
+                      <textarea class="form-control" name="inputDescription"></textarea>
+
                     </div>
                     
                     <div class="row">
 
                       <div
-                      class="col d-flex justify-content-start mt-5 mb-3 mb-lg-4"
-                    >
+                      class="col d-flex justify-content-start mt-5 mb-3 mb-lg-4">
                       <button
                         type="button"
                         @click="submit"
-                        class="btn btn-secondary btn-lg"
+                        class="btn btn-outline-primary"
                       >
                         ยกเลิก
                       </button>
@@ -93,7 +78,7 @@
                       <button
                         type="button"
                         @click="submit"
-                        class="btn btn-primary btn-lg"
+                        class="btn btn-primary"
                       >
                         สร้างโพสต์
                       </button>
@@ -112,25 +97,42 @@
 </template>
 
 <script>
+import Vue3TagsInput from 'vue3-tags-input';
     export default{
       name: "CreateHairStyle",
-      methods:{
-
-        previewImage(){
-        var file = document.getElementById("file").files;
-        if (file.length > 0){
-          var fileReader = new FileReader();
-          fileReader.onload = function(event){
-            document.getElementById("preview").setAttribute("src", event.target.result);
-          }
-          fileReader.readAsDataURL(file[0]);
-          // this.image = this.$ref.file.files.item(0)
+      data() {
+        return {
+          color: [],
+          type: [],
         }
       },
+      methods: {
+        previewImage() {
+          var file = document.getElementById("file").files;
+          if (file.length > 0) {
+            var fileReader = new FileReader();
+            fileReader.onload = function (event) {
+              document.getElementById("preview").setAttribute("src", event.target.result);
+            }
+            fileReader.readAsDataURL(file[0]);
+            // this.image = this.$ref.file.files.item(0)
+          }
+        },
 
-      }
-        
+        //demo method
+        async handleColorChangeTag(color) {
+          this.color = color;
+        },
+        async handleTypeChangeTag(type){
+          this.type = type
+        }
+      },
+      components: {
+        Vue3TagsInput
+      },
+
     }
+
 </script>
 
 <style lang="scss" scoped>

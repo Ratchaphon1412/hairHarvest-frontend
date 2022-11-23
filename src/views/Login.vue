@@ -70,7 +70,6 @@ export default {
   methods: {
     async login() {
       // console.log(this.email, this.password);
-
       const auth_store = useAuthStore();
       if (auth_store.login(this.email, this.password)) {
         await this.$router.push({ path: "/" });
