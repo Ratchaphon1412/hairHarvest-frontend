@@ -1,43 +1,39 @@
 <template>
-        <div class="mx-5 d-flex justify-content-center">
-        <Haircard
-            :title="'this is title'"
-            :subtitle="'no2'"
-            :username="'userNo1'"
-        />
-        </div>
-        <div class="mx-5 d-flex justify-content-center">
-        <Haircard
-            :title="'no1'"
-            :subtitle="'no2'"
-            :username="'userNo2'"
-        />
-        </div>
-        <div class="mx-5 d-flex justify-content-center">
-        <Haircard
-            :title="'no1'"
-            :subtitle="'no2'"
-            :username="'userNo3'"
-        />
-        </div>
-<!--  <div class="mx-5 d-flex justify-content-center">-->
-<!--    <Haircard v-for="post in allPost"-->
-<!--    :post="post" :url="`post/${post.id}`">-->
-<!--    </Haircard>-->
-<!--  </div>-->
+  <div class="mx-5 d-flex justify-content-center">
+    <Haircard
+      :title="'this is title'"
+      :subtitle="'no2'"
+      :username="'userNo1'"
+    />
+  </div>
+  <div class="mx-5 d-flex justify-content-center">
+    <Haircard :title="'no1'" :subtitle="'no2'" :username="'userNo2'" />
+  </div>
+  <div class="mx-5 d-flex justify-content-center">
+    <Haircard :title="'no1'" :subtitle="'no2'" :username="'userNo3'" />
+  </div>
+  <!--  <div class="mx-5 d-flex justify-content-center">-->
+  <!--    <Haircard v-for="post in allPost"-->
+  <!--    :post="post" :url="`post/${post.id}`">-->
+  <!--    </Haircard>-->
+  <!--  </div>-->
 </template>
 
 <script>
 import Haircard from "@/components/Haircard.vue";
-import {usePost} from "@/store/post";
+import { usePost } from "@/store/post";
+import { useAuthStore } from "@/store/auth.js";
 export default {
+  setup() {
+    const authStore = useAuthStore();
+    authStore.auth();
+  },
   data() {
-    return{
-     allPost:null
-    }
+    return {
+      allPost: null,
+    };
   },
   async mounted() {
-
     const postStore = usePost();
 
     //call method
@@ -50,7 +46,6 @@ export default {
     this.allPost = postAll;
 
     console.log(postAll);
-
   },
   components: {
     Haircard,
@@ -59,9 +54,7 @@ export default {
   comments: {
     Haircard,
   },
-}
+};
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

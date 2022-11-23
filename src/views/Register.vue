@@ -110,7 +110,6 @@
 
                     <div
                       class="d-flex justify-content-center mx-4 mb-3 mb-lg-4"
-                      v-if="checkpassword"
                     >
                       <button
                         type="button"
@@ -142,6 +141,7 @@
 
 <script>
 import { useAuthStore } from "@/store/auth.js";
+import Navbar from "@/components/Navbar.vue";
 export default {
   data() {
     return {
@@ -152,18 +152,17 @@ export default {
       image: null,
     };
   },
+  components: {
+    Navbar,
+  },
   methods: {
     async submit() {
-      const auth_store = useAuthStore();
-
-      this.uploadImage(this.image);
-
-      const response = await auth_store.register({
-        username: this.username,
-        password: this.password,
-        email: this.email,
-        image: this.image,
-      });
+      this.uploadImageAndData(
+        this.email,
+        this.username,
+        this.password,
+        this.image
+      );
     },
 
     previewImage() {
@@ -182,33 +181,15 @@ export default {
       }
     },
 
-    uploadImage(file) {
-      // const storage = getStorage();
+    uploadImageAndData(email, username, password, image) {
+      const auth_store = useAuthStore();
 
-      // const metadata = {
-      //   contentType: 'image/png'
-      // };
+      if (auth_store.register(email, username, password, image)) {
+        this.$router.push("/Login");
+      }
 
-      // const storageRef = ref(storage, 'images/' + file.name);
-      // const uploadTask = uploadBytesResumable(storageRef, file, metadata);
-
-      // () => {
-      //   getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-      //     console.log('File available at', downloadURL);
-      //   });
-      // }
-
-      // const imageEndpoint = 'http:localhost:8000/images/'
-
-      let formData = new FormData();
-      formData.append("document", file);
-
-      return axios.post("/upload/", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-          "X-CSRfToken": "{{ csrf_token }}",
-        },
-      });
+      // let formData = new FormData();
+      // formData.append("document", file);
     },
   },
 };

@@ -27,21 +27,40 @@ export const authAPI = {
         const json = JSON.stringify({"token": token});
         const response = await axiosInstance.post('user/', json)
         if (response.status == 200) {
+            console.log(response.data)
             return response.data
         }
         return {}
     },
     async register(name, email, password, image) {
-        const json = JSON.stringify({
-            "name": name, "email": email, "password": password, "user_profile": [{
-                "imageProfile": image
-            }]
-        });
-        const response = await axiosInstance.post('register/', json)
+        let formData = new FormData();
+        formData.append("image", image);
+        formData.append ("name",name);
+        formData.append ("email",email);
+        formData.append ("password",password);
+
+        const response = await axiosInstance.post('register/', formData)
         if (response.status == 200) {
             return true
         }
         return false
+
+
+
+
+
+
+
+        // const json = JSON.stringify({
+        //     "name": name, "email": email, "password": password, "user_profile": [{
+        //         "imageProfile": image
+        //     }]
+        // });
+        // const response = await axiosInstance.post('register/', json)
+        // if (response.status == 200) {
+        //     return true
+        // }
+        // return false
 
     },
     logout() {

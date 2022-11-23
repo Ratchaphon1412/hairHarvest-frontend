@@ -37,14 +37,14 @@ export const useAuthStore = defineStore({
                 return true;
             }
         },
-        async authen() {
-            const response = await authAPI.authen();
+        async auth() {
+            const response = await authAPI.auth();
             if (response['status'] === 200) {
                 // const data = JSON.parse();
-                console.log(response['body']);
-                this.email = response['body']['email'];
-                this.name = response['body']['name'];
-                this.userID = response['body']['id'];
+                console.log(response);
+                // this.email = response['body']['email'];
+                // this.name = response['body']['name'];
+                // this.userID = response['body']['id'];
 
                 return true;
             }
