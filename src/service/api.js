@@ -77,10 +77,6 @@ export const postAPI = {
         if (response.status == 200) {
             return response.data
         }
+        return {}
     },
-
-    //create post 
-    // async createPost(){
-    //     const
-    // }
 }

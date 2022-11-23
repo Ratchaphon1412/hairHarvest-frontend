@@ -36,7 +36,7 @@
                         <label class="form-label" for="form3Example1c"
                           >ชื่อทรงผม</label
                         >
-                        <input type="title" class="form-control" id="inputTitle">
+                        <input type="title" class="form-control" id="inputTitle" v-model="">
 
                       </div>
                     </div>
@@ -80,7 +80,7 @@
                     >
                       <button
                         type="button"
-                        @click="submit"
+                        @click.prevent="onCancel"
                         class="btn btn-secondary btn-lg"
                       >
                         ยกเลิก
@@ -92,7 +92,7 @@
                     >
                       <button
                         type="button"
-                        @click="submit"
+                        @click="saveNewPost()"
                         class="btn btn-primary btn-lg"
                       >
                         สร้างโพสต์
@@ -112,24 +112,53 @@
 </template>
 
 <script>
-    export default{
+import axios from 'axios'
+    export default {
       name: "CreateHairStyle",
-      methods:{
-
-        previewImage(){
-        var file = document.getElementById("file").files;
-        if (file.length > 0){
-          var fileReader = new FileReader();
-          fileReader.onload = function(event){
-            document.getElementById("preview").setAttribute("src", event.target.result);
-          }
-          fileReader.readAsDataURL(file[0]);
-          // this.image = this.$ref.file.files.item(0)
+      data() {
+        return {
+          post: {
+            name: "",
+            color: [],
+            style: [],
+            details: "",
+            //img
+            error: null
+          },
+          post_id: null,
         }
       },
-
+      methods: {
+        previewImage() {
+          var file = document.getElementById("file").files;
+          if (file.length > 0) {
+            var fileReader = new FileReader();
+            fileReader.onload = function (event) {
+              document.getElementById("preview").setAttribute("src", event.target.result);
+            }
+            fileReader.readAsDataURL(file[0]);
+            // this.image = this.$ref.file.files.item(0)
+          }
+        },
+        async saveNewPost() {
+          try {
+            const response = await this.axios.post("http://localhost:8000/api/post",this.post)
+            if (response.status == 200) {
+              this.new_post_id = response.data.id
+              this.$router.push(`/posts/${new_post_id}`)
+              console.table(this.new_post_id)
+            }
+          } catch (error) {
+            this.error = error.message
+            console.log(error)
+          }
+        },
+        onCancel(){
+          console.log('CANCEL SUBMIT');
+          this.post = false;
+          this.$router.push({ name: 'home' });
+        }
       }
-
     }
 </script>
 

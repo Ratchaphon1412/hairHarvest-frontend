@@ -20,11 +20,11 @@
             :username="'userNo3'"
         />
         </div>
-  <div class="col mx-5">
-    <Haircard v-for="post in allPost"
-    :post="post" :url="`post/${post.id}`">
-    </Haircard>
-  </div>
+<!--  <div class="mx-5 d-flex justify-content-center">-->
+<!--    <Haircard v-for="post in allPost"-->
+<!--    :post="post" :url="`post/${post.id}`">-->
+<!--    </Haircard>-->
+<!--  </div>-->
 </template>
 
 <script>
