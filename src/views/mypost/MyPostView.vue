@@ -1,13 +1,26 @@
 <template>
-
+  <div class="mx-5 d-flex justify-content-center">
+        <Haircard
+            :title="'This is my post page'"
+            :subtitle="'no2'"
+            :username="'userNo1'"
+        />
+  </div>
 </template>
 
 <script>
+import Haircard from "@/components/Haircard.vue";
 export default {
-  name: "MyPostView"
+  components: {
+    Haircard,
+  },
+  name: "MyPost",
+  comments: {
+    Haircard,
+  },
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
 </style>

@@ -53,14 +53,14 @@ const routes = [
     path: '/MyPost',
     name:'MyPost',
     component: function(){
-      return import(MyPostView)
+      return import("@/views/mypost/MyPostView")
     }
   },
   {
     path: '/SavePost',
     name: 'SavePost',
     component: function (){
-      return import(SavePostView)
+      return import("@/views/mypost/SavePostView")
     }
   },
 ]

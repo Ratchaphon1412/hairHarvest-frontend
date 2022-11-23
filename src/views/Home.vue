@@ -1,7 +1,7 @@
 <template>
         <div class="mx-5 d-flex justify-content-center">
         <Haircard
-            :title="'no1'"
+            :title="'this is title'"
             :subtitle="'no2'"
             :username="'userNo1'"
         />

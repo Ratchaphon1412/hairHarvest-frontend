@@ -36,41 +36,43 @@
                         <label class="form-label" for="form3Example1c"
                           >ชื่อทรงผม</label
                         >
-                        <input type="title" class="form-control" id="inputTitle">
+                        <input type="text" class="form-control" id="inputTitle">
 
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-md-6">
                         <label for="inputAddress" class="form-label">เลือกสีผม</label>
-                        <select id="inputState" class="form-select">
+                        <input type="text" class="form-control" id="inputColor">
+                        <!-- <select id="inputState" class="form-select">
                           <option selected>Choose...</option>
                           <option>ดำ</option>
                           <option>แดง</option>
                           <option>น้ำตาล</option>
                           <option>บลอนด์</option>
                           <option>น้ำเงิน</option>
-                        </select>
+                        </select> -->
                       </div>
 
                       <div class="col-md-6">
                         <label for="inputState" class="form-label">เลือกแบบผม</label>
-                        <select id="inputState" class="form-select">
+                        <input type="text" class="form-control" id="inputStyle">
+                        <!-- <select id="inputState" class="form-select">
                           <option selected>Choose...</option>
                           <option>เกาหลี</option>
                           <option>ลอนด์</option>
                           <option>ประบ่า</option>
                           <option>สั้น</option>
                           <option>ยาว</option>
-                        </select>
+                        </select> -->
                       </div> 
                     </div>
 
-                    <div class="pt-5">
+                    <div class="pt-4">
                       <label class="form-label" for="form3Example1c"
                           >รายละเอียด</label
                         >
-                        <input type="description" class="form-control" id="inputDescription">
+                        <input type="text" class="form-control" id="inputDescription">
                     </div>
                     
                     <div class="row">
