@@ -25,7 +25,7 @@
               href="#"
               role="button"
             >
-              Dropdown link
+              <img :src="profile_img" alt="" width="30" height="24">
             </a>
             <ul class="dropdown-menu ms-auto">
               <li>
@@ -51,7 +51,31 @@
 </template>
 
 <script>
-export default {};
+
+import {useAuthStore} from '@/store/auth';
+export default {
+
+  name:"NavbarDashboard",
+  data() {
+    return{
+      username : "",
+      profile_img : "http://localhost:8000",
+    }
+
+  },
+  //
+  async mounted(){
+
+    let storeAuth = useAuthStore()
+
+    await storeAuth.auth();
+    console.log(storeAuth.getImage)
+
+    this.profile_img += storeAuth.getImage;
+    // console.log(this.profile_img)
+    // this.username = authStore.getUsername();
+  }
+};
 </script>
 
 <style lang="scss" scoped></style>

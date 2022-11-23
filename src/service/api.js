@@ -16,7 +16,7 @@ export const authAPI = {
         console.log(email, password)
         const json = JSON.stringify({"email": email, "password": password});
         const response = await axiosInstance.post('login/', json)
-        if (response.status == 200) {
+        if (response.status === 200) {
             localStorage.setItem(JWT_TOKEN_LOCALSTORAGE_KEY, response.data.jwt)
             return true
         }
@@ -26,7 +26,7 @@ export const authAPI = {
         const token = localStorage.getItem(JWT_TOKEN_LOCALSTORAGE_KEY)
         const json = JSON.stringify({"token": token});
         const response = await axiosInstance.post('user/', json)
-        if (response.status == 200) {
+        if (response.status === 200) {
             console.log(response.data)
             return response.data
         }
@@ -44,24 +44,6 @@ export const authAPI = {
             return true
         }
         return false
-
-
-
-
-
-
-
-        // const json = JSON.stringify({
-        //     "name": name, "email": email, "password": password, "user_profile": [{
-        //         "imageProfile": image
-        //     }]
-        // });
-        // const response = await axiosInstance.post('register/', json)
-        // if (response.status == 200) {
-        //     return true
-        // }
-        // return false
-
     },
     logout() {
         localStorage.removeItem(JWT_TOKEN_LOCALSTORAGE_KEY)
