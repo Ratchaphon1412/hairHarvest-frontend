@@ -207,7 +207,7 @@ export default {
   
   .btn-primary {
     background-color: #DA0037 !important;
-    border:0px;
+    border: 0px;
   }
   .btn-primary:hover {
     background-color: #860b2a !important;

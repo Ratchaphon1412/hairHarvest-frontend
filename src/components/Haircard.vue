@@ -1,17 +1,28 @@
 <template>
-  <router-link to="/post/2">
-  <div class="card p-2 my-3" style="width:50rem;" >
-    <img src="post.userID.user_profile" style="width:50px;">
-    <h5 class="card-header">
-      {{post.userID.name}}
-    </h5>
-    <div class="card-body px-3">
-      <img alt="Card image cap" class="card-img-top" src="../assets/hairOne.png">
-      <h5 class="card-title pt-3">{{post.title}}</h5>
-      <p class="card-text">{{post.details}}</p>
+
+  <div class="card my-3 " style="width:28rem;">
+
+    <div class="row mt-3">
+        <div class="col-3"><img class="profile-border floated-end previewImg" src="../assets/default.png"></div>
+          <div class="col-6 text-start">
+            <label>{{title}}</label>
+            <br>
+            <label>{{username}}</label>
+        </div>
+        <div class="col">
+          <a class="mt-auto btn btn-primary justify-content-end" href="#"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark" viewBox="0 0 16 16">
+            <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/>
+          </svg></a>
+        </div>
+
+
+      <div class="mt-3">
+        <router-link to="/ShowHairStyle"></router-link>
+        <img type="button" @click="$router.push('ShowHairStyle')" alt="card image cap" class="card-img-bottom" src="../assets/hairOne.png">
+      </div>
     </div>
   </div>
-  </router-link>
+
 </template>
 
 <script>
@@ -33,9 +44,24 @@ export default {
 
 <style>
 .card{
-  position: relative;
   align-items: center;
   text-align: center;
+}
+.profile-border{
+  border: 4px solid #DA0037;
+  padding: 2px;
+  border-radius: 50%;
+  border-top-color: #2c2b2b;
+  border-left-color: #2c2b2b;
+  border-right-color: #2c2b2b;
+  width: 50px;
+  height: 50px;
+}
+
+.previewImg{
+  margin-left: auto;
+  margin-right: auto;
+  object-fit: cover;
 }
 
 </style>

@@ -1,4 +1,25 @@
 <template>
+        <div class="mx-5 d-flex justify-content-center">
+        <Haircard
+            :title="'no1'"
+            :subtitle="'no2'"
+            :username="'userNo1'"
+        />
+        </div>
+        <div class="mx-5 d-flex justify-content-center">
+        <Haircard
+            :title="'no1'"
+            :subtitle="'no2'"
+            :username="'userNo2'"
+        />
+        </div>
+        <div class="mx-5 d-flex justify-content-center">
+        <Haircard
+            :title="'no1'"
+            :subtitle="'no2'"
+            :username="'userNo3'"
+        />
+        </div>
   <div class="col mx-5">
     <Haircard v-for="post in allPost"
     :post="post" :url="`post/${post.id}`">
