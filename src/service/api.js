@@ -27,6 +27,7 @@ export const authAPI = {
         const json = JSON.stringify({"token": token});
         const response = await axiosInstance.post('user/', json)
         if (response.status == 200) {
+            console.log(response.data)
             return response.data
         }
         return {}
