@@ -32,14 +32,16 @@ export const authAPI = {
         }
         return {}
     },
-    async register(name, email, password, image) {
+    async register(email, username,password,image) {
         let formData = new FormData();
         formData.append("image", image);
-        formData.append ("name",name);
+        formData.append ("name",username);
         formData.append ("email",email);
         formData.append ("password",password);
 
-        const response = await axiosInstance.post('register/', formData)
+        const response = await axiosInstance.post('register/', formData,{headers: {
+            "Content-Type": "multipart/form-data"
+          },})
         if (response.status == 200) {
             return true
         }

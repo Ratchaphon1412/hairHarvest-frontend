@@ -28,8 +28,8 @@ export const useAuthStore = defineStore({
             }
             return false;
         },
-        async register(email, password, username) {
-            const response = await authAPI.register(email, password, username);
+        async register(email, username,password,image) {
+            const response = await authAPI.register(email, username,password,image);
             if (response['status'] === 200) {
                 // const data = JSON.parse();
                 console.log(response['body']);
