@@ -56,17 +56,49 @@
                       </div>
                     </div>
 
-                    <div class="form-outline flex-fill mb-0">
-                      <label class="form-label" for="form3Example4c"
-                        >Password *</label
-                      >
-                      <input
-                        v-model="confirmPassword"
-                        type="password"
-                        id="form3Example4c"
-                        class="form-control"
+                    <div v-if="password"></div>
+
+                    <div class="flex-row align-items-center mb-2">
+                      <img
+                        src="@/assets/default.png"
+                        id="preview"
+                        class="img-profile mb-4"
                       />
+
+                      <input
+                        type="file"
+                        name="file"
+                        id="file"
+                        accept="image/*"
+                        @change="previewImage"
+                        style="display: none"
+                        ref="chooseImg"
+                      />
+                      <button
+                        id="upload"
+                        @click="$refs.chooseImg.click()"
+                        type="button"
+                        class="btn btn-secondary img-button"
+                      >
+                        Choose your profile image</button
+                      ><br />
                     </div>
+
+                    <!-- <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                      <div class="form-outline flex-fill mb-0">
+                        <input
+                          v-model="password2"
+                          type="password"
+                          id="form3Example4cd"
+                          class="form-control"
+                        />
+                        <label class="form-label" for="form3Example4cd"
+                          >Repeat your password</label
+                        >
+                      </div>
+                    </div> -->
+
                     <div
                       class="form-check d-flex fw-bold justify-content-center mb-3"
                     >
@@ -116,13 +148,15 @@ export default {
       username: "",
       password: "",
       email: "",
-      image: "",
       confirmPassword: "",
+      image: null,
     };
   },
   methods: {
     async submit() {
       const auth_store = useAuthStore();
+
+      this.uploadImage(this.image);
 
       const response = await auth_store.register({
         username: this.username,
@@ -144,12 +178,37 @@ export default {
         };
 
         fileReader.readAsDataURL(file[0]);
+        this.image = this.$ref.file.files.item(0);
       }
     },
-  },
-  computed: {
-    checkpassword() {
-      return this.password === this.confirmPassword;
+
+    uploadImage(file) {
+      // const storage = getStorage();
+
+      // const metadata = {
+      //   contentType: 'image/png'
+      // };
+
+      // const storageRef = ref(storage, 'images/' + file.name);
+      // const uploadTask = uploadBytesResumable(storageRef, file, metadata);
+
+      // () => {
+      //   getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+      //     console.log('File available at', downloadURL);
+      //   });
+      // }
+
+      // const imageEndpoint = 'http:localhost:8000/images/'
+
+      let formData = new FormData();
+      formData.append("document", file);
+
+      return axios.post("/upload/", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          "X-CSRfToken": "{{ csrf_token }}",
+        },
+      });
     },
   },
 };
@@ -160,6 +219,8 @@ export default {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  object-fit: cover;
+  height: 200px;
   width: 200px;
   border: 2px solid #cecece;
   border-radius: 20px;

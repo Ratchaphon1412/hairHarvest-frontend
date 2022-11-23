@@ -8,14 +8,14 @@ import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyDoUwg4O3_6aogjeOHegLURxbBJYdujj1o",
-    authDomain: "devcampku.firebaseapp.com",
-    projectId: "devcampku",
-    storageBucket: "devcampku.appspot.com",
-    messagingSenderId: "96724723418",
-    appId: "1:96724723418:web:22530f6cc8ed90e1e1a7e3"
-};
-
+    apiKey: "AIzaSyCCZ5644bvYmQwGn77rdt4E5yHvpKfM3NY",
+    authDomain: "hairvest-ccc3c.firebaseapp.com",
+    projectId: "hairvest-ccc3c",
+    storageBucket: "hairvest-ccc3c.appspot.com",
+    messagingSenderId: "139447328728",
+    appId: "1:139447328728:web:a2840a54a044685b6a5cad"
+  };
+  
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const storage = getStorage(app);
