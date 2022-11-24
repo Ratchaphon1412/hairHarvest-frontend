@@ -74,6 +74,13 @@ const routes = [
       return import("@/views/store/ViewStore")
     }
   },
+  {
+    path: '/AllStore_',
+    name: 'AllStore_',
+    component: function (){
+      return import("@/views/store/AllStore_")
+    }
+  },
 ]
 
 const router = createRouter({
