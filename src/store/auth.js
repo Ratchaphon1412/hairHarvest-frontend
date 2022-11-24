@@ -42,8 +42,9 @@ export const useAuthStore = defineStore('auth',{
             const response = await authAPI.auth();
             console.log(response);
             this.email = response.user.email;
-            this.name = response.user.name;
+            this.username = response.user.name;
             this.userID = response.user.id;
+            this.image = response.profile_pic;
             console.log(this.userID)
             
 
