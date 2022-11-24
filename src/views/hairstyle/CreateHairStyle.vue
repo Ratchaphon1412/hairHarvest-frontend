@@ -8,7 +8,7 @@
           <div class="card text-black form-bg" style="border-radius: 25px">
             <div class="card-body p-md-5">
               <p class="text-left h3 fw-bold mb-3 mx-1 mx-md-4 mt-4">
-                สร้างโพสต์ทรงผม
+                Create Post
               </p>
               <div class="row">
                 <div class="col order-2 order-lg-1">
@@ -44,7 +44,7 @@
                     <div class="d-flex flex-row align-items-center mb-4">
                       <div class="form-outline flex-fill">
                         <label class="form-label" for="form3Example1c"
-                          >ชื่อทรงผม</label
+                          >Title</label
                         >
                         <input
                           v-model="title"
@@ -81,7 +81,7 @@
 
                     <div class="pt-4">
                       <label class="form-label" for="form3Example1c"
-                        >รายละเอียด</label
+                        >Detail</label
                       >
                       <input
                         v-model="details"
@@ -100,7 +100,7 @@
                           @click.prevent="onCancel"
                           class="btn btn-secondary btn-lg"
                         >
-                          ยกเลิก
+                          cancel
                         </button>
                       </div>
 
@@ -112,7 +112,7 @@
                           @click="saveNewPost()"
                           class="btn btn-primary btn-lg"
                         >
-                          สร้างโพสต์
+                          create
                         </button>
                       </div>
                     </div>

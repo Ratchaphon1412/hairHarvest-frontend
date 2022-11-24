@@ -1,4 +1,5 @@
 <template>
+  <NavbarDashboard/>
   <section class="mt-5">
     <div class="container h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
@@ -6,12 +7,12 @@
           <div class="card text-black form-bg" style="border-radius: 25px">
             <div class="card-body p-md-5">
               <p class="text-left h3 fw-bold mb-3 mx-1 mx-md-4 mt-4">
-                สร้างร้านค้า
+                Create Store
               </p>
               <div class="row">
                 <div class="col order-2 order-lg-1">
 
-                  <div class="flex-row align-items-center mb-2">
+                  <div class="flex-row align-items-center mb-1">
 
                     <img id="preview" class="img-profile mb-4" src="@/assets/shop.png"
                     >
@@ -31,19 +32,33 @@
 
                 </div>
                 <div class="col">
-                  <form class="mx-1 mx-md-4" @submit.prevent>
-                    <div class="d-flex flex-row align-items-center mb-4">
+                  <form class="mx-1 mx-md-3" @submit.prevent>
+                    <div class="d-flex flex-row align-items-center mb-2">
                       <div class="form-outline flex-fill">
-                        <label class="form-label" for="form3Example1c">ชื่อร้าน</label>
+                        <label class="form-label" for="form3Example1c">Name</label>
                         <input id="inputStoreName" class="form-control" type="storeName">
                       </div>
                     </div>
 
-                    <div class="pt-/">
+                    <div class="mb-1">
                       <label class="form-label" for="form3Example1c"
-                      >รายละเอียด</label
+                      >Description</label
                       >
                       <input id="inputStoreDescription" class="form-control" type="storeDescription">
+                    </div>
+
+                    <div class="mb-1">
+                      <label class="form-label" for="form3Example1c"
+                      >Location</label
+                      >
+                      <input id="inputStoreDescription" class="form-control" type="storeLocation">
+                    </div>
+
+                    <div class="mb-1">
+                      <label class="form-label" for="form3Example1c"
+                      >Contact</label
+                      >
+                      <input id="inputStoreDescription" class="form-control" type="storeContact">
                     </div>
 
                     <div class="row">
@@ -54,7 +69,7 @@
                             class="btn btn-secondary btn-lg"
                             type="button"
                             @click="submit">
-                          ยกเลิก
+                          cancel
                         </button>
                       </div>
 
@@ -64,7 +79,7 @@
                             class="btn btn-primary btn-lg"
                             type="button"
                             @click="submit">
-                          สร้างโพสต์
+                          create
                         </button>
                       </div>
 
@@ -81,8 +96,12 @@
 </template>
 
 <script>
+import NavbarDashboard from "@/components/NavbarDashboard.vue";
 export default {
   name: "CreateStore",
+  components: {
+    NavbarDashboard,
+  },
   methods: {
 
     previewImage() {
