@@ -71,14 +71,14 @@ const routes = [
     path: '/ViewStore',
     name: 'ViewStore',
     component: function (){
-      return import("@/views/store/ViewStore")
+      return import("@/views/store/ViewStore.vue")
     }
   },
   {
-    path: '/AllStore_',
-    name: 'AllStore_',
-    component: function (){
-      return import("@/views/store/AllStore_")
+    path: "/StoreView",
+    name: "StoreView",
+    component: function(){
+      return import("@/views/store/StoreView.vue")
     }
   },
   {
@@ -86,6 +86,13 @@ const routes = [
     name: 'Wiki',
     component: function (){
       return import("@/views/Wiki")
+    }
+  },
+  {
+    path: "/AllStore_",
+    name: "AllStore_",
+    component: function(){
+      return import("@/views/store/AllStore_.vue")
     }
   },
 ]

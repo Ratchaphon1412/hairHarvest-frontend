@@ -124,6 +124,13 @@
                           create
                         </button>
                       </div>
+<<<<<<< HEAD
+=======
+
+                      <div>
+                        <RouterView to="/StoreView"/>
+                      </div>
+>>>>>>> feature/showStore
                     </div>
                   </form>
                 </div>
