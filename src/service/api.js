@@ -77,7 +77,7 @@ export const postAPI = {
         return {}
     },
 
-    async getMyPost(id) {
+    async getPost(id) {
     
         const response = await axiosInstance.get('/post/view/' + "?id=" + id)
         if (response.status == 200) {
@@ -85,4 +85,37 @@ export const postAPI = {
         }
         return {}
     },
+    async createPost(userID,title,detials,post_image){
+        let formData = new FormData();
+        formData.append("userID",userID)
+        formData.append("title",title)
+        formData.append("detials",detials)
+        formData.append("post_image",post_image)
+
+
+
+        const response = await axiosInstance.post('/post/', formData,{headers: {"Content-Type": "multipart/form-data"}})
+        if (response.status == 200) {
+            return response.data
+        }
+        return {}
+    },
+    async getMyPost(id){
+        const json = JSON.stringify({"userID": id});
+        const response = await axiosInstance.post('/post/view/',json);
+        
+
+       
+
+        if (response.status == 200) {
+
+            return response.data
+
+        }
+        return {}
+
+
+
+    }
+
 }

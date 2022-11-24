@@ -20,6 +20,7 @@
                     />
 
                     <input
+                      v-bind="image"
                       type="file"
                       name="file"
                       id="file"
@@ -46,13 +47,14 @@
                           >ชื่อทรงผม</label
                         >
                         <input
+                          v-model="title"
                           type="text"
                           class="form-control"
                           id="inputTitle"
                         />
                       </div>
                     </div>
-                    <div class="row">
+                    <!-- <div class="row">
                       <div class="col-md-6">
                         <label for="inputAddress" class="form-label"
                           >เลือกสีผม</label
@@ -62,16 +64,9 @@
                           class="form-control"
                           id="inputColor"
                         />
-                        <!-- <select id="inputState" class="form-select">
-                          <option selected>Choose...</option>
-                          <option>ดำ</option>
-                          <option>แดง</option>
-                          <option>น้ำตาล</option>
-                          <option>บลอนด์</option>
-                          <option>น้ำเงิน</option>
-                        </select> -->
-                      </div>
-
+                    
+                      </div> -->
+                    <!-- 
                       <div class="col-md-6">
                         <label for="inputState" class="form-label"
                           >เลือกแบบผม</label
@@ -82,13 +77,14 @@
                           id="inputStyle"
                         />
                       </div>
-                    </div>
+                    </div> -->
 
                     <div class="pt-4">
                       <label class="form-label" for="form3Example1c"
                         >รายละเอียด</label
                       >
                       <input
+                        v-model="details"
                         type="text"
                         class="form-control"
                         id="inputDescription"
@@ -133,19 +129,16 @@
 
 <script>
 import NavbarDashboard from "@/components/NavbarDashboard.vue";
+import { postAPI } from "@/service/api.js";
+import { useAuthStore } from "@/store/auth.js";
 export default {
   name: "CreateHairStyle",
   data() {
     return {
-      post: {
-        name: "",
-        color: [],
-        style: [],
-        details: "",
-        //img
-        error: null,
-      },
-      post_id: null,
+      title: "",
+      details: "",
+      userID: "",
+      image: null,
     };
   },
   components: {
@@ -162,22 +155,24 @@ export default {
             .setAttribute("src", event.target.result);
         };
         fileReader.readAsDataURL(file[0]);
+        this.image = file[0];
       }
     },
     async saveNewPost() {
-      try {
-        const response = await this.axios.post(
-          "http://localhost:8000/api/post",
-          this.post
-        );
-        if (response.status == 200) {
-          this.new_post_id = response.data.id;
-          this.$router.push(`/posts/${new_post_id}`);
-          console.table(this.new_post_id);
-        }
-      } catch (error) {
-        this.error = error.message;
-        console.log(error);
+      const authStore = useAuthStore();
+      await authStore.auth();
+
+      this.userID = authStore.userID;
+
+      if (
+        await postAPI.createPost(
+          this.userID,
+          this.title,
+          this.details,
+          this.image
+        )
+      ) {
+        this.$router.push({ path: "/" });
       }
     },
     onCancel() {

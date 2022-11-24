@@ -35,7 +35,7 @@ export default {
 
     const postStore = usePost();
 
-    await postStore.myPost(authStore.userID);
+    await postStore.getMyPost(authStore.userID);
     const myPost = postStore.myPost;
     console.log(myPost);
     this.myPost = myPost;
