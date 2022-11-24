@@ -71,8 +71,13 @@ const routes = [
     path: '/ViewStore',
     name: 'ViewStore',
     component: function (){
-      return import("@/views/store/ViewStore")
+      return import("@/views/store/ViewStore.vue")
     }
+  },
+  {
+    path: '/StoreView',
+    name: 'StoreView',
+    component: () => import('@/views/mypost/StoreView.vue')
   },
 ]
 

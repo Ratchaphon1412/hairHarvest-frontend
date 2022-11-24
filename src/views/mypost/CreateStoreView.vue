@@ -83,6 +83,9 @@
                         </button>
                       </div>
 
+                      <div>
+                        <RouterView to="/StoreView"/>
+                      </div>
                     </div>
                   </form>
                 </div>
