@@ -4,11 +4,11 @@
   <div v-for="post in saveMyPostData">
     <div class="mx-5 d-flex justify-content-center">
       <Haircard
-        :img="post.image"
-        :userProfile="post.post.userProfileImage.profile_pic"
-        :userName="post.post.userProfileImage.user.name"
-        :detail="post.post.detials"
-        :postId="post.post.id"
+        :img="post.post.image"
+        :userProfile="post.post.post.userProfileImage.profile_pic"
+        :userName="post.post.post.userProfileImage.user.name"
+        :detail="post.post.post.detials"
+        :postId="post.post.post.id"
       />
     </div>
   </div>
