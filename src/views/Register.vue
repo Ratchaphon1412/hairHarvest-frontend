@@ -66,6 +66,7 @@
                       />
 
                       <input
+                        v-bind="image"
                         type="file"
                         name="file"
                         id="file"
@@ -177,7 +178,8 @@ export default {
         };
 
         fileReader.readAsDataURL(file[0]);
-        this.image = this.$ref.file.files.item(0);
+        // this.image = this.$ref.file.files.item(0);
+        this.image = file[0];
       }
     },
 

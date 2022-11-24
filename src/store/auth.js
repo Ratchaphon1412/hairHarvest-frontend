@@ -29,8 +29,8 @@ export const useAuthStore = defineStore('auth',{
             }
             return false;
         },
-        async register(email, password, username) {
-            const response = await authAPI.register(email, password, username);
+        async register(email, username,password,image) {
+            const response = await authAPI.register(email, username,password,image);
             if (response['status'] === 200) {
                 // const data = JSON.parse();
                 console.log(response['body']);
@@ -41,23 +41,19 @@ export const useAuthStore = defineStore('auth',{
         async auth() {
             const response = await authAPI.auth();
             console.log(response);
-            this.userID = response['user']['id'];
-            this.username = response['user']['name'];
-            this.image = response['profile_pic'];
+            this.email = response.user.email;
+            this.name = response.user.name;
+            this.userID = response.user.id;
+            console.log(this.userID)
+            
 
-            if (response['status'] === 200) {
+            if (response['status'] == 200) {
                 // const data = JSON.parse();
-                //
-
-                this.userID = response['user']['id'];
-                this.username = response['user']['name'];
-                this.image = response['profile_pic'];
-                console.log(this.image)
-
-                // console.log(response['user'])
-                // this.email = response['body']['email'];
-                // this.name = response['body']['name'];
-                // this.userID = response['body']['id'];
+                console.log(response);
+                this.email = response['body']['user']['email'];
+                this.name = response['body']['user']['name'];
+                this.userID = response['body']['user']['id'];
+                console.log(this.userID)
 
                 return true;
             }
