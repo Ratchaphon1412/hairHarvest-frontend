@@ -63,6 +63,20 @@ const routes = [
       return import("@/views/mypost/SavePostView.vue")
     }
   },
+  {
+    path: '/AllStore',
+    name: 'AllStore',
+    component: function (){
+      return import("@/views/store/AllStore")
+    }
+  },
+  {
+    path: '/ViewStore',
+    name: 'ViewStore',
+    component: function (){
+      return import("@/views/store/ViewStore")
+    }
+  },
 ]
 
 const router = createRouter({
