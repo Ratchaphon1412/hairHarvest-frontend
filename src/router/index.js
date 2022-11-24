@@ -60,7 +60,7 @@ const routes = [
     path: '/SavePost',
     name: 'SavePost',
     component: function (){
-      return import("@/views/mypost/SavePostView")
+      return import("@/views/mypost/SavePostView.vue")
     }
   },
 ]

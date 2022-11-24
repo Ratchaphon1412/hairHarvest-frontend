@@ -4,22 +4,39 @@
     <div class="card mt-3" style="max-width: 42rem">
       <div class="card-body">
         <!-- Data -->
-        <div class="d-flex mb-3">
-          <a href="">
-            <img
-              :src="`http://localhost:8000${userProfile}`"
-              class="border rounded-circle me-2"
-              alt="Avatar"
-              style="height: 40px"
-            />
-          </a>
-          <div>
-            <a href="" class="text-dark mb-0">
-              <strong>{{ userName }}</strong>
-            </a>
-            <a href="" class="text-muted d-block" style="margin-top: -6px">
-              <small>10h</small>
-            </a>
+        <div class="row">
+          <div class="col">
+            <div class="d-flex mb-3">
+              <a href="">
+                <img
+                  :src="`http://localhost:8000${userProfile}`"
+                  class="border rounded-circle me-2"
+                  alt="Avatar"
+                  style="height: 40px"
+                />
+              </a>
+
+              <div>
+                <a href="" class="text-dark mb-0">
+                  <strong>{{ userName }}</strong>
+                </a>
+              </div>
+              <div class="ms-auto">
+                <div class="dropdown">
+                  <button
+                    class="btn btn-secondary"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    <i class="bi bi-three-dots"></i>
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" @click="save">Save</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <!-- Description -->
@@ -47,16 +64,12 @@
 </template>
 
 <script>
+import { useAuthStore } from "@/store/auth";
+import { postAPI } from "@/service/api.js";
+
 export default {
   data() {
-    return {
-      userName: null,
-      userProfile: null,
-      img: null,
-      postId: null,
-      title: null,
-      detail: null,
-    };
+    return {};
   },
 
   props: {
@@ -79,6 +92,15 @@ export default {
     },
     detail: {
       type: String,
+    },
+  },
+  methods: {
+    async save() {
+      let self = this;
+      const auth = useAuthStore();
+      await auth.auth();
+
+      await postAPI.savePost(auth.userID, self.postId);
     },
   },
 };

@@ -1,26 +1,46 @@
 <template>
-  <div class="mx-5 d-flex justify-content-center">
-        <Haircard
-            :title="'This is save post page'"
-            :subtitle="'no2'"
-            :username="'userNo1'"
-        />
+  <NavbarDashboard />
+
+  <div v-for="post in saveMyPostData">
+    <div class="mx-5 d-flex justify-content-center">
+      <Haircard
+        :img="post.image"
+        :userProfile="post.post.userProfileImage.profile_pic"
+        :userName="post.post.userProfileImage.user.name"
+        :detail="post.post.detials"
+        :postId="post.post.id"
+      />
+    </div>
   </div>
 </template>
 
 <script>
 import Haircard from "@/components/Haircard.vue";
+import NavbarDashboard from "@/components/NavbarDashboard.vue";
+import { useAuthStore } from "@/store/auth.js";
+import { usePost } from "@/store/post.js";
+
 export default {
+  data() {
+    return {
+      saveMyPostData: null,
+    };
+  },
   components: {
     Haircard,
+    NavbarDashboard,
   },
   name: "SavePostView",
-  comments: {
-    Haircard,
+  async mounted() {
+    const authStore = useAuthStore();
+    await authStore.auth();
+
+    const postStore = usePost();
+    await postStore.getMySavePost(authStore.userID);
+    console.log(postStore.savePost);
+    this.saveMyPostData = postStore.savePost;
   },
-}
+};
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

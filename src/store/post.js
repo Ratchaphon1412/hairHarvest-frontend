@@ -6,6 +6,7 @@ export const usePost = defineStore({
     state: () => ({
         postAll: null,
         myPost: null,
+        savePost: null,
     }),
 
     getters: {
@@ -35,6 +36,12 @@ export const usePost = defineStore({
         delete(id) {
             this.postAll = this.postAll.filter((post) => post.id != id)
         },
+        async getMySavePost(id){
+
+            
+            
+            this.savePost = await postAPI.getMySavePost(id)
+        }
         
     }
 

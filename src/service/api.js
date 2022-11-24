@@ -69,8 +69,9 @@ export const postAPI = {
         }
         return []
     },
-    async savePost(id) {
-        const response = await axiosInstance.put('/post/save/' + id)
+    async savePost(userID,postID) {
+        const json = JSON.stringify({"userID": userID, "postID": postID});
+        const response = await axiosInstance.post('/post/save/', json)
         if (response.status == 200) {
             return response.data
         }
@@ -113,9 +114,22 @@ export const postAPI = {
 
         }
         return {}
+    },
+    async getMySavePost(id){
+       
+        const response = await axiosInstance.get('/post/save/'+"?userID="+id);
+        
 
+       
 
+        if (response.status == 200) {
 
+            console.log(response.data)
+
+            return response.data
+
+        }
+        return {}
     }
 
 }
