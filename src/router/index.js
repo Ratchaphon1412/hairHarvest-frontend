@@ -81,6 +81,13 @@ const routes = [
       return import("@/views/store/StoreView.vue")
     }
   },
+  {
+    path: '/Wiki',
+    name: 'Wiki',
+    component: function (){
+      return import("@/views/Wiki")
+    }
+  },
 ]
 
 const router = createRouter({
