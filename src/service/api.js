@@ -25,6 +25,7 @@ export const authAPI = {
     async auth() {
         const token = localStorage.getItem(JWT_TOKEN_LOCALSTORAGE_KEY)
         const json = JSON.stringify({"token": token});
+        console.log(json)
         const response = await axiosInstance.post('user/', json)
         if (response.status == 200) {
             console.log(response.data)
@@ -49,21 +50,6 @@ export const authAPI = {
 
 
 
-
-
-
-
-        // const json = JSON.stringify({
-        //     "name": name, "email": email, "password": password, "user_profile": [{
-        //         "imageProfile": image
-        //     }]
-        // });
-        // const response = await axiosInstance.post('register/', json)
-        // if (response.status == 200) {
-        //     return true
-        // }
-        // return false
-
     },
     logout() {
         localStorage.removeItem(JWT_TOKEN_LOCALSTORAGE_KEY)
@@ -74,6 +60,7 @@ export const postAPI = {
     async getAllPost() {
         const response = await axiosInstance.get('post/');
         if (response.status == 200) {
+            console.log(response.data)
             return response.data
         }
         return {}
@@ -94,7 +81,8 @@ export const postAPI = {
     },
 
     async getMyPost(id) {
-        const response = await axiosInstance.get('/post/save/' + {parems: {user_id: id}})
+    
+        const response = await axiosInstance.get('/post/view/' + "?id=" + id)
         if (response.status == 200) {
             return response.data
         }

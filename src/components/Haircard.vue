@@ -1,54 +1,96 @@
 <template>
-
-  <div class="card my-3 " style="width:28rem;">
-
-    <div class="row mt-3">
-        <div class="col-3"><img class="profile-border floated-end ms-4" src="../assets/default.png"></div>
-          <div class="col-6 text-start">
-            <label>{{title}}</label>
-            <br>
-            <label>{{username}}</label>
+  <!--Section: Newsfeed-->
+  <section>
+    <div class="card mt-3" style="max-width: 42rem">
+      <div class="card-body">
+        <!-- Data -->
+        <div class="d-flex mb-3">
+          <a href="">
+            <img
+              :src="`http://localhost:8000${userProfile}`"
+              class="border rounded-circle me-2"
+              alt="Avatar"
+              style="height: 40px"
+            />
+          </a>
+          <div>
+            <a href="" class="text-dark mb-0">
+              <strong>{{ userName }}</strong>
+            </a>
+            <a href="" class="text-muted d-block" style="margin-top: -6px">
+              <small>10h</small>
+            </a>
+          </div>
         </div>
-        <div class="col">
-          <a class="mt-auto btn btn-primary" href="#"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark" viewBox="0 0 16 16">
-            <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/>
-          </svg></a>
+        <!-- Description -->
+        <div>
+          <p>
+            {{ detail }}
+          </p>
         </div>
-
-
-      <div class="mt-3">
-        <img type="button" @click="$router.push('ShowHairStyle')" alt="card image cap" class="card-img-bottom" src="../assets/hairOne.png">
+      </div>
+      <!-- Media -->
+      <div
+        class="bg-image hover-overlay ripple rounded-0"
+        data-mdb-ripple-color="light"
+      >
+        <img :src="`http://localhost:8000${img}`" class="w-100" />
+        <a href="#!">
+          <div
+            class="mask"
+            style="background-color: rgba(251, 251, 251, 0.2)"
+          ></div>
+        </a>
       </div>
     </div>
-    
-  </div>
-
+  </section>
 </template>
 
 <script>
 export default {
   data() {
     return {
-      post: null
-    }
+      userName: null,
+      userProfile: null,
+      img: null,
+      postId: null,
+      title: null,
+      detail: null,
+    };
   },
+
   props: {
-    post: Object,
-    url: {
+    userName: {
       type: String,
-      default: '',
+      default: "Anna Doe",
+    },
+    userProfile: {
+      type: String,
+      default: null,
+    },
+    img: {
+      type: String,
+    },
+    postId: {
+      type: Number,
+    },
+    title: {
+      type: String,
+    },
+    detail: {
+      type: String,
     },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-.card{
+.card {
   align-items: center;
   text-align: center;
 }
-.profile-border{
-  border: 4px solid #DA0037;
+.profile-border {
+  border: 4px solid #da0037;
   padding: 2px;
   border-radius: 50%;
   border-top-color: #2c2b2b;
@@ -57,6 +99,4 @@ export default {
   width: 50px;
   height: 50px;
 }
-
-
 </style>

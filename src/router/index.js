@@ -53,7 +53,7 @@ const routes = [
     path: '/MyPost',
     name:'MyPost',
     component: function(){
-      return import("@/views/mypost/MyPostView")
+      return import("@/views/mypost/MyPostView.vue")
     }
   },
   {

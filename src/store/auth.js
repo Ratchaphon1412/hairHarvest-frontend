@@ -39,12 +39,20 @@ export const useAuthStore = defineStore({
         },
         async auth() {
             const response = await authAPI.auth();
-            if (response['status'] === 200) {
+            console.log(response);
+            this.email = response.user.email;
+            this.name = response.user.name;
+            this.userID = response.user.id;
+            console.log(this.userID)
+            
+
+            if (response['status'] == 200) {
                 // const data = JSON.parse();
                 console.log(response);
-                // this.email = response['body']['email'];
-                // this.name = response['body']['name'];
-                // this.userID = response['body']['id'];
+                this.email = response['body']['user']['email'];
+                this.name = response['body']['user']['name'];
+                this.userID = response['body']['user']['id'];
+                console.log(this.userID)
 
                 return true;
             }

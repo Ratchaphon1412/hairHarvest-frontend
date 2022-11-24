@@ -1,17 +1,21 @@
 <template>
-  <div class="mx-5 d-flex justify-content-center">
-    <Haircard
-      :title="'this is title'"
-      :subtitle="'no2'"
-      :username="'userNo1'"
-    />
+  <NavbarDashboard />
+  <div v-for="post in allPost">
+    <div class="mx-5 d-flex justify-content-center">
+      <Haircard
+        :img="post.image"
+        :userProfile="post.post.userProfileImage.profile_pic"
+        :userName="post.post.userProfileImage.user.name"
+        :detail="post.post.detials"
+      />
+    </div>
   </div>
-  <div class="mx-5 d-flex justify-content-center">
+  <!-- <div class="mx-5 d-flex justify-content-center">
     <Haircard :title="'no1'" :subtitle="'no2'" :username="'userNo2'" />
   </div>
   <div class="mx-5 d-flex justify-content-center">
     <Haircard :title="'no1'" :subtitle="'no2'" :username="'userNo3'" />
-  </div>
+  </div> -->
   <!--  <div class="mx-5 d-flex justify-content-center">-->
   <!--    <Haircard v-for="post in allPost"-->
   <!--    :post="post" :url="`post/${post.id}`">-->
@@ -23,6 +27,7 @@
 import Haircard from "@/components/Haircard.vue";
 import { usePost } from "@/store/post";
 import { useAuthStore } from "@/store/auth.js";
+import NavbarDashboard from "@/components/NavbarDashboard.vue";
 export default {
   setup() {
     const authStore = useAuthStore();
@@ -46,9 +51,11 @@ export default {
     this.allPost = postAll;
 
     console.log(postAll);
+    console.log(postAll.image);
   },
   components: {
     Haircard,
+    NavbarDashboard,
   },
   name: "home",
   comments: {
