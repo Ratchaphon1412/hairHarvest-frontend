@@ -3,9 +3,10 @@
 <section>
     <div class="container">
     	<div class="row g-4">
-    		<router-link to="/StoreView"> 
+    		
     		<!--Profile Card 3-->
     		<div class="col-md-4">
+                <router-link to="/StoreView"> 
     		    <div class="card profile-card-3">
     		        <div class="background-block">
     		            <img src="@/assets/cardFour.jpg" alt="profile-sample1" class="background"/>
@@ -18,8 +19,9 @@
                     <h5><small>Thailand, Bangkok : 081222313</small></h5>
                     </div>
                 </div>
-    		</div>
             </router-link>
+    		</div>
+            
             <div class="col-md-4">
     		    <div class="card profile-card-3">
     		        <div class="background-block">
