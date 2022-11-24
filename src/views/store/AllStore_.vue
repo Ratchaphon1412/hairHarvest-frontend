@@ -3,7 +3,7 @@
 <section>
     <div class="container">
     	<div class="row g-4">
-    		
+    		<router-link to="/StoreView"> 
     		<!--Profile Card 3-->
     		<div class="col-md-4">
     		    <div class="card profile-card-3">
@@ -19,6 +19,7 @@
                     </div>
                 </div>
     		</div>
+            </router-link>
             <div class="col-md-4">
     		    <div class="card profile-card-3">
     		        <div class="background-block">

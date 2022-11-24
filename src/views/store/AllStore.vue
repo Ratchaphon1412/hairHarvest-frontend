@@ -6,6 +6,7 @@
     		
     		<!--Profile Card 3-->
     		<div class="col-md-4">
+               
     		    <div class="card profile-card-3">
     		        <div class="background-block">
     		            <img src="@/assets/cardFour.jpg" alt="profile-sample1" class="background"/>
@@ -17,8 +18,9 @@
                     <h2>ManMan barber<small>Find us when you want to be handsome!</small></h2><br>
                     <h5><small>Thailand, Bangkok : 081222313</small></h5>
                     </div>
+                    </div>
+
                 </div>
-    		</div>
             <div class="col-md-4">
     		    <div class="card profile-card-3">
     		        <div class="background-block">
