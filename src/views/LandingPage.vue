@@ -1,7 +1,7 @@
 <template>
   <navbar class="nav-op" />
   <!-- Masthead-->
-  <div style="background-color:black">
+  <div style="background-color:black" id="page-top">
   <img src="@/assets/bgOne.jpg" class="img-container1 position-relative">
     <div class="container flex-column position-absolute top-50 start-50 translate-middle">
       <!-- Masthead Heading-->
@@ -33,20 +33,21 @@
       <!-- About Section Content-->
       <div class="row">
         <div class="col-lg-4 ms-auto">
-          <p class="lead">Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the
-            complete source files including HTML, CSS, and JavaScript as well as optional SASS stylesheets for easy
-            customization.</p>
+          <p class="lead">Our platform will help you find your favorite hairstyles from every users on our platform.
+            With store feature, you can create store page to advertise and be a famouse stylish.
+          </p>
         </div>
         <div class="col-lg-4 me-auto">
-          <p class="lead">You can create your own custom avatar for the masthead, change the icon in the dividers, and
-            add your email address to the contact form to make it fully functional!</p>
+          <p class="lead">You can create posts to share your story and describe about your haircut to others.
+            You are important to our community. Join us to make the best hairstyle community!
+          </p>
         </div>
       </div>
       <!-- About Section Button-->
       <div class="text-center mt-4">
-        <a class="btn btn-xl btn-outline-light" href="https://startbootstrap.com/theme/freelancer/">
+        <a class="btn btn-xl btn-outline-light" href="/Register">
           <i class="fas fa-download"></i>
-          Free Download!
+          Register now!
         </a>
       </div>
     </div>
