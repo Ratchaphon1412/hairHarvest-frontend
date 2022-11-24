@@ -42,7 +42,7 @@ export const useAuthStore = defineStore('auth',{
             const response = await authAPI.auth();
             console.log(response);
             this.userID = response['user']['id'];
-            this.name = response['user']['name'];
+            this.username = response['user']['name'];
             this.image = response['profile_pic'];
 
             if (response['status'] === 200) {
@@ -50,7 +50,7 @@ export const useAuthStore = defineStore('auth',{
                 //
 
                 this.userID = response['user']['id'];
-                this.name = response['user']['name'];
+                this.username = response['user']['name'];
                 this.image = response['profile_pic'];
                 console.log(this.image)
 

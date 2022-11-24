@@ -26,6 +26,7 @@
               role="button"
             >
               <img :src="profile_img" alt="" width="30" height="24">
+              <label class="ms-1">{{username}}</label>
             </a>
             <ul class="dropdown-menu ms-auto">
               <li>
@@ -72,8 +73,9 @@ export default {
     console.log(storeAuth.getImage)
 
     this.profile_img += storeAuth.getImage;
-    // console.log(this.profile_img)
-    // this.username = authStore.getUsername();
+
+    this.username = storeAuth.getUsername;
+    
   }
 };
 </script>
