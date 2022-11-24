@@ -1,5 +1,5 @@
 <template>
-<navbar/>
+  <navbar/>
 <section>
     <div class="container">
     	<div class="row g-4">
@@ -86,6 +86,20 @@
     		        <div class="card-content">
                     <h2>Noname Barber<small>Nothing to tell</small></h2><br>
                     <h5><small>Italy, Lazio : 081222313</small></h5>
+                    </div>
+                </div>
+    		</div>
+            <div class="col-md-4">
+    		    <div class="card profile-card-3">
+    		        <div class="background-block">
+    		            <img src="@/assets/cardFour.jpg" alt="profile-sample1" class="background"/>
+    		        </div>
+    		        <div class="">
+    		            <img src="@/assets/store6.jpg" alt="profile-image" class="profile"/>
+    		        </div>
+    		        <div class="card-content">
+                    <h2>New Barber<small>make haircut</small></h2><br>
+                    <h5><small>Gernmany, Berlin : 081222313</small></h5>
                     </div>
                 </div>
     		</div>

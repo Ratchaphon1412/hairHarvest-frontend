@@ -74,11 +74,6 @@ const routes = [
       return import("@/views/store/ViewStore.vue")
     }
   },
-  {
-    path: '/StoreView',
-    name: 'StoreView',
-    component: () => import('@/views/mypost/StoreView.vue')
-  },
 ]
 
 const router = createRouter({
