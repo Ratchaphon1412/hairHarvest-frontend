@@ -13,7 +13,7 @@
           <li class="nav-item mx-0 mx-lg-1">
             <router-link
               class="nav-link py-3 px-0 px-lg-3 rounded"
-              to="/LandingPage"
+              to="/" 
               >Home</router-link
             >
             <!-- <a class="nav-link py-3 px-0 px-lg-3 rounded" href="#page-top"
@@ -23,11 +23,6 @@
           <li class="nav-item mx-0 mx-lg-1">
             <a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about"
               >About</a
-            >
-          </li>
-          <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact"
-              >Follow</a
             >
           </li>
           <li class="nav-item mx-0 mx-lg-1">

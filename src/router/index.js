@@ -1,15 +1,19 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import LandingPage from "@/views/LandingPage";
-import MyPostView from "@/views/mypost/MyPostView";
-import SavePostView from "@/views/mypost/SavePostView";
-import CreateStoreView from "@/views/mypost/CreateStoreView";
 
 
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: () => import(/* webpackChunkName: "home" */ '../views/Home.vue')
+    name: 'LandingPage',
+    component: () => import(/* webpackChunkName: "home" */ '../views/LandingPage.vue')
+  },
+  {
+    path:'/Home',
+    name:'Home',
+    component: function(){
+      return import('@/views/Home.vue')
+    }
   },
   {
     path:'/Login',
@@ -20,13 +24,6 @@ const routes = [
     path:'/Register',
     name:'Register',
     component: () => import(/* webpackChunkName: "Register" */ '../views/Register.vue')
-  },
-  {
-    path:'/LandingPage',
-    name:'LandingPage',
-    component: function(){
-      return LandingPage
-    }
   },
   {
     path:'/CreateHairStyle',

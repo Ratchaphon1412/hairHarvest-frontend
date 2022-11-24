@@ -4,11 +4,11 @@
     class="navbar navbar-expand-lg bg-dark text-uppercase sticky-top"
   >
     <div class="container">
-      <a class="navbar-brand text-white" href="/LandingPage">Hairvest</a>
+      <a class="navbar-brand text-white" href="/Home">Hairvest</a>
       <div id="navbarResponsive" class="collapse navbar-collapse">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded" href="/">Home</a>
+            <a class="nav-link py-3 px-0 px-lg-3 rounded" href="/Home">Home</a>
           </li>
           <li class="nav-item mx-0 mx-lg-1">
             <a
