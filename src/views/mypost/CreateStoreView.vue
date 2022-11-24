@@ -5,6 +5,7 @@
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-lg-12 col-xl-8">
           <div class="card text-black form-bg" style="border-radius: 25px">
+            <img id="preview2" src="@/assets/cardOne.png" class="card-img-top resize">
             <div class="card-body p-md-5">
               <p class="text-left h3 fw-bold mb-3 mx-1 mx-md-4 mt-4">
                 Create Store
@@ -33,8 +34,22 @@
                       type="button"
                       @click="$refs.chooseImg.click()"
                     >
-                      Choose your image
+                      Choose your profile image
                     </button>
+<<<<<<< HEAD
+=======
+
+                    <input id="file2" ref="chooseImg" accept="image/*" name="file2" style="display: none"
+                           type="file" @change="previewImage2">
+                    <button
+                        id="upload"
+                        class="btn btn-secondary img-button mt-3"
+                        type="button"
+                        @click="$refs.chooseImg.click()"
+                    >
+                      Choose your background image
+                    </button>
+>>>>>>> 8d6f6dfa3c72133d40d1e7c5ea08f4edd5f5a7f6
                   </div>
                 </div>
                 <div class="col">
@@ -142,6 +157,17 @@ export default {
         // this.image = this.$ref.file.files.item(0)
       }
     },
+    previewImage2() {
+      var file = document.getElementById("file2").files;
+      if (file.length > 0) {
+        var fileReader = new FileReader();
+        fileReader.onload = function (event) {
+          document.getElementById("preview2").setAttribute("src", event.target.result);
+        }
+        fileReader.readAsDataURL(file[0]);
+        // this.image = this.$ref.file.files.item(0)
+      }
+    },
   },
   components: {
     NavbarDashboard,
@@ -170,4 +196,14 @@ export default {
   margin-left: auto;
   margin-right: auto;
 }
+<<<<<<< HEAD
 </style>
+=======
+
+.resize{
+  object-fit: cover;
+  height:100px;
+}
+
+</style>
+>>>>>>> 8d6f6dfa3c72133d40d1e7c5ea08f4edd5f5a7f6
