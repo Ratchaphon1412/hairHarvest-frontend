@@ -81,6 +81,13 @@ const routes = [
       return import("@/views/store/AllStore_")
     }
   },
+  {
+    path: '/Wiki',
+    name: 'Wiki',
+    component: function (){
+      return import("@/views/Wiki")
+    }
+  },
 ]
 
 const router = createRouter({
