@@ -1,4 +1,6 @@
 <template>
+  <NavbarDashboard />
+
   <div v-for="post in myPost">
     <div class="mx-5 d-flex justify-content-center">
       <Haircard
@@ -15,6 +17,7 @@
 import Haircard from "@/components/Haircard.vue";
 import { usePost } from "@/store/post";
 import { useAuthStore } from "@/store/auth.js";
+import NavbarDashboard from "@/components/NavbarDashboard.vue";
 
 export default {
   data() {
@@ -22,21 +25,22 @@ export default {
       myPost: null,
     };
   },
+  components: {
+    Haircard,
+    NavbarDashboard,
+  },
   async mounted() {
     const authStore = useAuthStore();
-    authStore.auth();
+    await authStore.auth();
 
     const postStore = usePost();
 
-    await postStore.myPost(authStore.userID);
+    await postStore.getMyPost(authStore.userID);
     const myPost = postStore.myPost;
     console.log(myPost);
     this.myPost = myPost;
   },
 
-  components: {
-    Haircard,
-  },
   name: "MyPost",
   comments: {
     Haircard,

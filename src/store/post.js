@@ -12,9 +12,7 @@ export const usePost = defineStore({
         getPostAll: state => {
             return state.postAll;
         },
-        getMyPost: state => {         
-            return state.myPost;
-        }
+       
 
     },
 
@@ -26,7 +24,11 @@ export const usePost = defineStore({
             const response = await postAPI.getAllPost()
             this.postAll = response
         },
-        async myPost(id){
+        async getPost(id){
+            const response = await postAPI.getPost(id)
+            this.myPost = response
+        },
+        async getMyPost(id){
             const response = await postAPI.getMyPost(id)
             this.myPost = response
         },
