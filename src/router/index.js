@@ -67,7 +67,14 @@ const routes = [
     path: '/AllStore',
     name: 'AllStore',
     component: function (){
-      return import("@/views/mypost/AllStore")
+      return import("@/views/store/AllStore")
+    }
+  },
+  {
+    path: '/ViewStore',
+    name: 'ViewStore',
+    component: function (){
+      return import("@/views/store/ViewStore")
     }
   },
 ]
