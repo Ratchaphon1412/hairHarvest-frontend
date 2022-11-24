@@ -1,4 +1,6 @@
 <template>
+  <NavbarDashboard />
+
   <section class="mt-5">
     <div class="container h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
@@ -130,6 +132,7 @@
 </template>
 
 <script>
+import NavbarDashboard from "@/components/NavbarDashboard.vue";
 export default {
   name: "CreateHairStyle",
   data() {
@@ -144,6 +147,9 @@ export default {
       },
       post_id: null,
     };
+  },
+  components: {
+    NavbarDashboard,
   },
   methods: {
     previewImage() {
