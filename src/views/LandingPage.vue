@@ -1,8 +1,8 @@
 <template>
-
+  <navbar />
   <!-- Masthead-->
   <header class="masthead text-center" id="page-top">
-    <div class="container d-flex align-items-center flex-column">
+    <div class="container d-flex align-items-center flex-column mt-4">
       <!-- Masthead Heading-->
       <h1 class="masthead-heading border-bottom mb-0">Hairvest</h1>
       <h5 class="my-2">Website for Beauty and Salon</h5>
@@ -75,9 +75,11 @@
 </template>
 
 <script>
-
+import Navbar from "@/components/Navbar.vue";
 export default {
-
+  components: {
+    Navbar,
+  },
 }
 </script>
 

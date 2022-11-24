@@ -1,4 +1,5 @@
 <template>
+  <navbar/>
   <section class="vh-100">
     <div class="container-fluid h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
