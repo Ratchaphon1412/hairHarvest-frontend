@@ -25,8 +25,8 @@
               href="#"
               role="button"
             >
-              <img :src="profile_img" alt="" width="30" height="24">
-              <label class="ms-1">{{username}}</label>
+              <img :src="profile_img" alt="" width="30" height="24" />
+              <label class="ms-1">{{ username }}</label>
             </a>
             <ul class="dropdown-menu ms-auto">
               <li>
@@ -39,7 +39,7 @@
                 <a class="dropdown-item" href="/CreateStore">Create Store</a>
               </li>
               <li>
-                <a class="dropdown-item fw-bold text-red" href="/LandingPage"
+                <a class="dropdown-item fw-bold text-red" @click="logout"
                   >Logout</a
                 >
               </li>
@@ -52,31 +52,34 @@
 </template>
 
 <script>
-
-import {useAuthStore} from '@/store/auth';
+import { useAuthStore } from "@/store/auth";
 export default {
-
-  name:"NavbarDashboard",
+  name: "NavbarDashboard",
   data() {
-    return{
-      username : "",
-      profile_img : "http://localhost:8000",
-    }
-
+    return {
+      username: "",
+      profile_img: "http://localhost:8000",
+    };
   },
   //
-  async mounted(){
-
-    let storeAuth = useAuthStore()
+  async mounted() {
+    let storeAuth = useAuthStore();
 
     await storeAuth.auth();
-    console.log(storeAuth.getImage)
+    console.log(storeAuth.image);
 
-    this.profile_img += storeAuth.getImage;
+    this.profile_img += storeAuth.image;
 
-    this.username = storeAuth.getUsername;
-    
-  }
+    this.username = storeAuth.username;
+  },
+  methods: {
+    logout() {
+      let storeAuth = useAuthStore();
+      storeAuth.logout();
+
+      this.$router.push("/LandingPage");
+    },
+  },
 };
 </script>
 
