@@ -172,7 +172,7 @@ export default {
           this.image
         )
       ) {
-        this.$router.push({ path: "/" });
+        this.$router.push({ path: "/Home" });
       }
     },
     onCancel() {
