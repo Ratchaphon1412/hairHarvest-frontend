@@ -102,7 +102,7 @@
     		        </div>
     		        <div class="card-content">
                     <h2>New Barber<small>make haircut</small></h2><br>
-                    <h5><small>Gernmany, Berlin : 081222313</small></h5>
+                    <h5><small>Germany, Berlin : 081222313</small></h5>
                     </div>
                 </div>
     		</div>
