@@ -95,6 +95,34 @@ const routes = [
       return import("@/views/store/AllStore_.vue")
     }
   },
+  {
+    path: "/ViewWiki1",
+    name: "ViewWiki1",
+    component: function(){
+      return import("@/views/ViewWiki1.vue")
+    }
+  },
+  {
+    path: "/ViewWiki2",
+    name: "ViewWiki2",
+    component: function(){
+      return import("@/views/ViewWiki2.vue")
+    }
+  },
+  {
+    path: "/ViewWiki3",
+    name: "ViewWiki3",
+    component: function(){
+      return import("@/views/ViewWiki3.vue")
+    }
+  },
+  {
+    path: "/ViewWiki4",
+    name: "ViewWiki4",
+    component: function(){
+      return import("@/views/ViewWiki4.vue")
+    }
+  },
 ]
 
 const router = createRouter({
